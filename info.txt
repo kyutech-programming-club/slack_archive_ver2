@@ -1,0 +1,12 @@
+Bot User OAuth Token: xoxb-597500547424-4511524546932-o3RDC4fjQtLnQOvDn1RVhTz8
+
+App ID: A04EW2BN78V
+
+Date of App Creation: December 13, 2022
+
+Client Secret: 16666b4c7b495285dbd8ba2c5e8a7330
+
+Signing Secret: 4b62954cdb2bd5ea713c08b82fa06d17
+
+Verification Token: J5w7R58cZqZ8Mkj1UjurpeWM
+
