@@ -1,0 +1,1108 @@
+[
+    {
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1670943784.661189",
+        "user": "U04F1FEG2TE",
+        "text": "<@U04F1FEG2TE>さんがチャンネルに参加しました",
+        "inviter": "U03FHSPG3BK"
+    },
+    {
+        "client_msg_id": "241f9c45-2118-4a1c-b3c6-1f924f8d9f0d",
+        "type": "message",
+        "text": "<!everyone>\nlt-hubとzoomです！\nよろしくお願いします！\nlt-hub: <https://lt-hub.web.app/events/Af9MaSebX4wZxzPxQ1UF>\nzoom: <https://us04web.zoom.us/j/78802359008?pwd=gjjSAQI281K4Wr7V2QTYeJr9HpS1If.1>",
+        "user": "U01GL0ALG2K",
+        "ts": "1669971812.733809",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ujMW",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "everyone"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nlt-hubとzoomです！\nよろしくお願いします！\nlt-hub: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https://lt-hub.web.app/events/Af9MaSebX4wZxzPxQ1UF"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nzoom: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https://us04web.zoom.us/j/78802359008?pwd=gjjSAQI281K4Wr7V2QTYeJr9HpS1If.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG"
+    },
+    {
+        "type": "message",
+        "text": "<!everyone>\n本日のLT会は18時からジムラボの1-5で開催します！\n会議室の鍵です！",
+        "files": [
+            {
+                "id": "F04DF7GM2BU",
+                "created": 1669961929,
+                "timestamp": 1669961929,
+                "name": "BB84BEEB-4A8E-4602-97E7-5B170E5487FF.jpg",
+                "title": "BB84BEEB-4A8E-4602-97E7-5B170E5487FF.jpg",
+                "mimetype": "image/jpeg",
+                "filetype": "jpg",
+                "pretty_type": "JPEG",
+                "user": "U03DQ0KPG9Y",
+                "user_team": "THKEQG3CG",
+                "editable": false,
+                "size": 319290,
+                "mode": "hosted",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https://files.slack.com/files-pri/THKEQG3CG-F04DF7GM2BU/bb84beeb-4a8e-4602-97e7-5b170e5487ff.jpg",
+                "url_private_download": "https://files.slack.com/files-pri/THKEQG3CG-F04DF7GM2BU/download/bb84beeb-4a8e-4602-97e7-5b170e5487ff.jpg",
+                "media_display_type": "unknown",
+                "thumb_64": "https://files.slack.com/files-tmb/THKEQG3CG-F04DF7GM2BU-d932b65da6/bb84beeb-4a8e-4602-97e7-5b170e5487ff_64.jpg",
+                "thumb_80": "https://files.slack.com/files-tmb/THKEQG3CG-F04DF7GM2BU-d932b65da6/bb84beeb-4a8e-4602-97e7-5b170e5487ff_80.jpg",
+                "thumb_360": "https://files.slack.com/files-tmb/THKEQG3CG-F04DF7GM2BU-d932b65da6/bb84beeb-4a8e-4602-97e7-5b170e5487ff_360.jpg",
+                "thumb_360_w": 222,
+                "thumb_360_h": 360,
+                "thumb_480": "https://files.slack.com/files-tmb/THKEQG3CG-F04DF7GM2BU-d932b65da6/bb84beeb-4a8e-4602-97e7-5b170e5487ff_480.jpg",
+                "thumb_480_w": 297,
+                "thumb_480_h": 480,
+                "thumb_160": "https://files.slack.com/files-tmb/THKEQG3CG-F04DF7GM2BU-d932b65da6/bb84beeb-4a8e-4602-97e7-5b170e5487ff_160.jpg",
+                "thumb_720": "https://files.slack.com/files-tmb/THKEQG3CG-F04DF7GM2BU-d932b65da6/bb84beeb-4a8e-4602-97e7-5b170e5487ff_720.jpg",
+                "thumb_720_w": 445,
+                "thumb_720_h": 720,
+                "thumb_800": "https://files.slack.com/files-tmb/THKEQG3CG-F04DF7GM2BU-d932b65da6/bb84beeb-4a8e-4602-97e7-5b170e5487ff_800.jpg",
+                "thumb_800_w": 494,
+                "thumb_800_h": 800,
+                "thumb_960": "https://files.slack.com/files-tmb/THKEQG3CG-F04DF7GM2BU-d932b65da6/bb84beeb-4a8e-4602-97e7-5b170e5487ff_960.jpg",
+                "thumb_960_w": 593,
+                "thumb_960_h": 960,
+                "thumb_1024": "https://files.slack.com/files-tmb/THKEQG3CG-F04DF7GM2BU-d932b65da6/bb84beeb-4a8e-4602-97e7-5b170e5487ff_1024.jpg",
+                "thumb_1024_w": 633,
+                "thumb_1024_h": 1024,
+                "original_w": 750,
+                "original_h": 1214,
+                "thumb_tiny": "AwAwAB23I5DYy3PPWke62Jnyy2PQ0rxs78ZAA60wWhOcsQD14FJaoY6G7EwJEZA9T3qUN365qkLaVMhFbGexxVqIMIwH+93zSk2gsSp0NVbgkTn5iOOmasgkDjHJpGQFslAfcinHYGNtSTFknPJoJAkbJxUijbwFwPYVE/8ArG5/zipnsCJU6U6mAijIyeeKaegMfUD/AOsbkCpARzmkOD2570pPQEf/2Q==",
+                "permalink": "https://kyutech-proken.slack.com/files/U03DQ0KPG9Y/F04DF7GM2BU/bb84beeb-4a8e-4602-97e7-5b170e5487ff.jpg",
+                "permalink_public": "https://slack-files.com/THKEQG3CG-F04DF7GM2BU-f2a0db5bae",
+                "is_starred": false,
+                "has_rich_preview": false,
+                "file_access": "visible"
+            }
+        ],
+        "upload": false,
+        "user": "U03DQ0KPG9Y",
+        "display_as_bot": false,
+        "ts": "1669961990.426549",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "H+9",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "everyone"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n本日のLT会は18時からジムラボの1-5で開催します！\n会議室の鍵です！"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "client_msg_id": "d2f14863-0738-4351-bd1c-8041635666cc",
+        "reactions": [
+            {
+                "name": "emoi",
+                "users": [
+                    "UJKA1H51S"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "client_msg_id": "1f5c9bba-326c-4f60-ad90-9cdc73b85d12",
+        "type": "message",
+        "text": "<!everyone>\n*12月2日(金)*の18:00~開催します！\n参加できない方々は後日公開されるアーカイブをぜひご覧ください！\n時間の相談や質問があれば気軽に相談してください！",
+        "user": "U01GL0ALG2K",
+        "ts": "1669706315.713299",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "u07",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "everyone"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "12月2日(金)",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "の18:00~開催します！\n参加できない方々は後日公開されるアーカイブをぜひご覧ください！\n時間の相談や質問があれば気軽に相談してください！"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG",
+        "reactions": [
+            {
+                "name": "exceptionallyfastparrot",
+                "users": [
+                    "UJKA1H51S",
+                    "U01GL0ALG2K",
+                    "UJL2P5KCG",
+                    "U01TH3FHH98",
+                    "U01S3UVTW91",
+                    "U03DQ0KPG9Y"
+                ],
+                "count": 6
+            }
+        ]
+    },
+    {
+        "client_msg_id": "0eab4ef6-c4ab-4991-96c6-aebf5f8d398d",
+        "type": "message",
+        "text": "*<!everyone>*\n次回のLT会の日程を決めます！\n*11月28日(月)～12月2日(金)*の間に開催しようと思うので、都合のいい日に投票してください。（:月曜: :火曜::水曜::木曜::金曜: ）\n是非ご参加ください！\n*18:00~*の予定です！\n不都合ありましたら言ってください！",
+        "user": "U01GL0ALG2K",
+        "ts": "1669339983.876459",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Xx1q",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "everyone",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n次回のLT会の日程を決めます！\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "11月28日(月)～12月2日(金)",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "の間に開催しようと思うので、都合のいい日に投票してください。（"
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "月曜"
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "火曜",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "水曜",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "木曜",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "emoji",
+                                "name": "金曜",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " ",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "）\n是非ご参加ください！\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "18:00~",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "の予定です！\n不都合ありましたら言ってください！"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG",
+        "edited": {
+            "user": "U01GL0ALG2K",
+            "ts": "1669340010.000000"
+        },
+        "reactions": [
+            {
+                "name": "月曜",
+                "users": [
+                    "U01GL0ALG2K",
+                    "U017A41CYH1",
+                    "U03FHSPG3BK"
+                ],
+                "count": 3
+            },
+            {
+                "name": "火曜",
+                "users": [
+                    "U01GL0ALG2K",
+                    "U017A41CYH1"
+                ],
+                "count": 2
+            },
+            {
+                "name": "水曜",
+                "users": [
+                    "U01GL0ALG2K",
+                    "U03DQ0KPG9Y"
+                ],
+                "count": 2
+            },
+            {
+                "name": "木曜",
+                "users": [
+                    "U01GL0ALG2K",
+                    "UJL2P5KCG",
+                    "U01S3UVTW91"
+                ],
+                "count": 3
+            },
+            {
+                "name": "金曜",
+                "users": [
+                    "U01GL0ALG2K",
+                    "UJL2P5KCG",
+                    "U01S3UVTW91",
+                    "U03DQ0KPG9Y"
+                ],
+                "count": 4
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "text": "<@UTB90C48Z>\n猪平先生\nこちらが10月分の活動報告書です。\n確認よろしくお願いいたします。",
+        "files": [
+            {
+                "id": "F04A47TV87L",
+                "created": 1667977106,
+                "timestamp": 1667977106,
+                "name": "活動報告書　10月.pdf",
+                "title": "活動報告書　10月.pdf",
+                "mimetype": "application/pdf",
+                "filetype": "pdf",
+                "pretty_type": "PDF",
+                "user": "U03DQ0KPG9Y",
+                "user_team": "THKEQG3CG",
+                "editable": false,
+                "size": 62828,
+                "mode": "hosted",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https://files.slack.com/files-pri/THKEQG3CG-F04A47TV87L/__________________10___.pdf",
+                "url_private_download": "https://files.slack.com/files-pri/THKEQG3CG-F04A47TV87L/download/__________________10___.pdf",
+                "media_display_type": "unknown",
+                "thumb_pdf": "https://files.slack.com/files-tmb/THKEQG3CG-F04A47TV87L-88de51d6eb/__________________10____thumb_pdf.png",
+                "thumb_pdf_w": 911,
+                "thumb_pdf_h": 1286,
+                "permalink": "https://kyutech-proken.slack.com/files/U03DQ0KPG9Y/F04A47TV87L/__________________10___.pdf",
+                "permalink_public": "https://slack-files.com/THKEQG3CG-F04A47TV87L-d72ad492ce",
+                "is_starred": false,
+                "has_rich_preview": false,
+                "file_access": "visible"
+            }
+        ],
+        "upload": false,
+        "user": "U03DQ0KPG9Y",
+        "display_as_bot": false,
+        "ts": "1667977123.051959",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "q+OG",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "UTB90C48Z"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n猪平先生\nこちらが10月分の活動報告書です。\n確認よろしくお願いいたします。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "client_msg_id": "d8d3f754-bf51-4efa-a593-cf10572ec4ab",
+        "thread_ts": "1667977123.051959",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1667980529.664479",
+        "reply_users": [
+            "UTB90C48Z"
+        ],
+        "is_locked": false,
+        "subscribed": false
+    },
+    {
+        "client_msg_id": "16684f99-8e8f-43dc-add8-da76dd472046",
+        "type": "message",
+        "text": "<!channel>\n次のzoomリンクです\n<https://us04web.zoom.us/j/74131840353?pwd=xM5QNVzLER7obEcb8m40n1Lp98VPf3.1>",
+        "user": "U01GL0ALG2K",
+        "ts": "1666949938.528399",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "G8t5",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "channel"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n次のzoomリンクです\n"
+                            },
+                            {
+                                "type": "link",
+                                "url": "https://us04web.zoom.us/j/74131840353?pwd=xM5QNVzLER7obEcb8m40n1Lp98VPf3.1"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG",
+        "thread_ts": "1666949938.528399",
+        "reply_count": 3,
+        "reply_users_count": 2,
+        "latest_reply": "1666954444.976589",
+        "reply_users": [
+            "U01GL0ALG2K",
+            "UJKA1H51S"
+        ],
+        "is_locked": false,
+        "subscribed": false
+    },
+    {
+        "client_msg_id": "ecaf8dca-06fd-47be-aabe-d1c75644fa97",
+        "type": "message",
+        "text": "<!channel>\n本日のzoomのurlとlt-hubです！\nご参加ください！\n<https://us04web.zoom.us/j/71647592819?pwd=nxUFFeFr7LyBecFgqzni90cFRlk3b6.1>\n<https://lt-hub.web.app/events/9AMESz3WCBW7EOPMNdpp>",
+        "user": "U01GL0ALG2K",
+        "ts": "1666947499.284229",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "e77h",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "channel"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n本日のzoomのurlとlt-hubです！\nご参加ください！\n"
+                            },
+                            {
+                                "type": "link",
+                                "url": "https://us04web.zoom.us/j/71647592819?pwd=nxUFFeFr7LyBecFgqzni90cFRlk3b6.1"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n"
+                            },
+                            {
+                                "type": "link",
+                                "url": "https://lt-hub.web.app/events/9AMESz3WCBW7EOPMNdpp"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG"
+    },
+    {
+        "client_msg_id": "bcd479ef-e5ad-477b-b3af-8145f2233031",
+        "type": "message",
+        "text": "<!channel>\n金曜日の18:00～でLT会を工房で行います！！\n工房の掃除もするようなので来れる人は17:00～から来てください！！",
+        "user": "UJL2P5KCG",
+        "ts": "1666689102.112049",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "Z2TY",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "channel"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n金曜日の18:00～でLT会を工房で行います！！\n工房の掃除もするようなので来れる人は17:00～から来てください！！"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG",
+        "reactions": [
+            {
+                "name": "eyes",
+                "users": [
+                    "U017A41CYH1",
+                    "U0135LP7ZEG"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "subtype": "thread_broadcast",
+        "text": "金曜でお願いします！",
+        "user": "UJL2P5KCG",
+        "ts": "1666575827.965979",
+        "thread_ts": "1665992507.392039",
+        "root": {
+            "type": "message",
+            "text": "月末なので普通のLTもしようと思います！\nいける日程にスタンプを押してください！",
+            "user": "U01GL0ALG2K",
+            "ts": "1665992507.392039",
+            "blocks": [
+                {
+                    "type": "rich_text",
+                    "block_id": "9MF",
+                    "elements": [
+                        {
+                            "type": "rich_text_section",
+                            "elements": [
+                                {
+                                    "type": "text",
+                                    "text": "月末なので普通のLTもしようと思います！\nいける日程にスタンプを押してください！"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "team": "THKEQG3CG",
+            "attachments": [
+                {
+                    "from_url": "https://kyutech-proken.slack.com/archives/CS1U1M8AZ/p1665981064696579",
+                    "ts": "1665981064.696579",
+                    "author_id": "UJL2P5KCG",
+                    "channel_id": "CS1U1M8AZ",
+                    "channel_team": "THKEQG3CG",
+                    "channel_name": "times",
+                    "is_msg_unfurl": true,
+                    "message_blocks": [
+                        {
+                            "team": "THKEQG3CG",
+                            "channel": "CS1U1M8AZ",
+                            "ts": "1665981064.696579",
+                            "message": {
+                                "blocks": [
+                                    {
+                                        "type": "rich_text",
+                                        "block_id": "Wbd1",
+                                        "elements": [
+                                            {
+                                                "type": "rich_text_section",
+                                                "elements": [
+                                                    {
+                                                        "type": "broadcast",
+                                                        "range": "channel",
+                                                        "style": {
+                                                            "bold": true
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "text",
+                                                        "text": "\n外部院試LT来週行います！\n九工大の院試の話とかもするので院を考えてる人は多少有益になると思います\nおそらく15分くらいで対面ベースでやります（Zoomも併用）\n来週の月火木金（24~28）の18:00~のどこかでやるのでスタンプ押してください！\nプロ研以外の人も誘ってもらってOKです！"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "color": "D0D0D0",
+                    "is_share": true,
+                    "fallback": "[October 17th, 2022 1:31 PM] yattinda: *<!channel>*\n外部院試LT来週行います！\n九工大の院試の話とかもするので院を考えてる人は多少有益になると思います\nおそらく15分くらいで対面ベースでやります（Zoomも併用）\n来週の月火木金（24~28）の18:00~のどこかでやるのでスタンプ押してください！\nプロ研以外の人も誘ってもらってOKです！",
+                    "text": "*<!channel>*\n外部院試LT来週行います！\n九工大の院試の話とかもするので院を考えてる人は多少有益になると思います\nおそらく15分くらいで対面ベースでやります（Zoomも併用）\n来週の月火木金（24~28）の18:00~のどこかでやるのでスタンプ押してください！\nプロ研以外の人も誘ってもらってOKです！",
+                    "author_name": "森川　靖仁",
+                    "author_link": "https://kyutech-proken.slack.com/team/UJL2P5KCG",
+                    "author_icon": "https://avatars.slack-edge.com/2019-05-21/643294422967_1a25ea659e191f4ee243_48.jpg",
+                    "author_subname": "森川　靖仁",
+                    "mrkdwn_in": [
+                        "text"
+                    ],
+                    "footer": "#times に投稿"
+                }
+            ],
+            "thread_ts": "1665992507.392039",
+            "reply_count": 1,
+            "reply_users_count": 1,
+            "latest_reply": "1666575827.965979",
+            "reply_users": [
+                "UJL2P5KCG"
+            ],
+            "is_locked": false,
+            "subscribed": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "uaZJ7",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "金曜でお願いします！"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "client_msg_id": "55a43b03-4f97-4bb7-9f0b-7616cdf38063",
+        "reactions": [
+            {
+                "name": "melting_face",
+                "users": [
+                    "UJKA1H51S"
+                ],
+                "count": 1
+            },
+            {
+                "name": "pleading_face",
+                "users": [
+                    "UJKA1H51S"
+                ],
+                "count": 1
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "text": "<!channel>\n工房の掃除も行いたいと思うので、時間のある方は*17:00~*集まっていただきたいです！\nよろしくお願いします！！",
+        "user": "U01GL0ALG2K",
+        "ts": "1666076463.197879",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "hWBhc",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "channel"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n工房の掃除も行いたいと思うので、時間のある方は"
+                            },
+                            {
+                                "type": "text",
+                                "text": "17:00~",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "集まっていただきたいです！\nよろしくお願いします！！"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG",
+        "attachments": [
+            {
+                "from_url": "https://kyutech-proken.slack.com/archives/CHKEQGFUG/p1665992507392039",
+                "ts": "1665992507.392039",
+                "author_id": "U01GL0ALG2K",
+                "channel_id": "CHKEQGFUG",
+                "channel_team": "THKEQG3CG",
+                "channel_name": "everyone",
+                "is_msg_unfurl": true,
+                "message_blocks": [
+                    {
+                        "team": "THKEQG3CG",
+                        "channel": "CHKEQGFUG",
+                        "ts": "1665992507.392039",
+                        "message": {
+                            "blocks": [
+                                {
+                                    "type": "rich_text",
+                                    "block_id": "9MF",
+                                    "elements": [
+                                        {
+                                            "type": "rich_text_section",
+                                            "elements": [
+                                                {
+                                                    "type": "text",
+                                                    "text": "月末なので普通のLTもしようと思います！\nいける日程にスタンプを押してください！"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "color": "D0D0D0",
+                "is_share": true,
+                "fallback": "[October 17th, 2022 4:41 PM] keifukuda1115: 月末なので普通のLTもしようと思います！\nいける日程にスタンプを押してください！",
+                "text": "月末なので普通のLTもしようと思います！\nいける日程にスタンプを押してください！",
+                "author_name": "福田恵一朗",
+                "author_link": "https://kyutech-proken.slack.com/team/U01GL0ALG2K",
+                "author_icon": "https://avatars.slack-edge.com/2021-07-07/2248803748339_6984a8cab169f07ee7ea_48.png",
+                "author_subname": "福田恵一朗",
+                "mrkdwn_in": [
+                    "text"
+                ],
+                "footer": "#everyone に投稿"
+            }
+        ]
+    },
+    {
+        "type": "message",
+        "text": "月末なので普通のLTもしようと思います！\nいける日程にスタンプを押してください！",
+        "user": "U01GL0ALG2K",
+        "ts": "1665992507.392039",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "9MF",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "月末なので普通のLTもしようと思います！\nいける日程にスタンプを押してください！"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG",
+        "attachments": [
+            {
+                "from_url": "https://kyutech-proken.slack.com/archives/CS1U1M8AZ/p1665981064696579",
+                "ts": "1665981064.696579",
+                "author_id": "UJL2P5KCG",
+                "channel_id": "CS1U1M8AZ",
+                "channel_team": "THKEQG3CG",
+                "channel_name": "times",
+                "is_msg_unfurl": true,
+                "message_blocks": [
+                    {
+                        "team": "THKEQG3CG",
+                        "channel": "CS1U1M8AZ",
+                        "ts": "1665981064.696579",
+                        "message": {
+                            "blocks": [
+                                {
+                                    "type": "rich_text",
+                                    "block_id": "Wbd1",
+                                    "elements": [
+                                        {
+                                            "type": "rich_text_section",
+                                            "elements": [
+                                                {
+                                                    "type": "broadcast",
+                                                    "range": "channel",
+                                                    "style": {
+                                                        "bold": true
+                                                    }
+                                                },
+                                                {
+                                                    "type": "text",
+                                                    "text": "\n外部院試LT来週行います！\n九工大の院試の話とかもするので院を考えてる人は多少有益になると思います\nおそらく15分くらいで対面ベースでやります（Zoomも併用）\n来週の月火木金（24~28）の18:00~のどこかでやるのでスタンプ押してください！\nプロ研以外の人も誘ってもらってOKです！"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "color": "D0D0D0",
+                "is_share": true,
+                "fallback": "[October 17th, 2022 1:31 PM] yattinda: *<!channel>*\n外部院試LT来週行います！\n九工大の院試の話とかもするので院を考えてる人は多少有益になると思います\nおそらく15分くらいで対面ベースでやります（Zoomも併用）\n来週の月火木金（24~28）の18:00~のどこかでやるのでスタンプ押してください！\nプロ研以外の人も誘ってもらってOKです！",
+                "text": "*<!channel>*\n外部院試LT来週行います！\n九工大の院試の話とかもするので院を考えてる人は多少有益になると思います\nおそらく15分くらいで対面ベースでやります（Zoomも併用）\n来週の月火木金（24~28）の18:00~のどこかでやるのでスタンプ押してください！\nプロ研以外の人も誘ってもらってOKです！",
+                "author_name": "森川　靖仁",
+                "author_link": "https://kyutech-proken.slack.com/team/UJL2P5KCG",
+                "author_icon": "https://avatars.slack-edge.com/2019-05-21/643294422967_1a25ea659e191f4ee243_48.jpg",
+                "author_subname": "森川　靖仁",
+                "mrkdwn_in": [
+                    "text"
+                ],
+                "footer": "#times に投稿"
+            }
+        ],
+        "thread_ts": "1665992507.392039",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1666575827.965979",
+        "reply_users": [
+            "UJL2P5KCG"
+        ],
+        "is_locked": false,
+        "subscribed": false
+    },
+    {
+        "type": "message",
+        "text": "<@UTB90C48Z>\n猪平先生\nこちら9月分の活動報告書です。\n確認よろしくお願いいたします。",
+        "files": [
+            {
+                "id": "F045W72FZ5K",
+                "created": 1665479607,
+                "timestamp": 1665479607,
+                "name": "活動報告書  9月.pdf",
+                "title": "活動報告書  9月.pdf",
+                "mimetype": "application/pdf",
+                "filetype": "pdf",
+                "pretty_type": "PDF",
+                "user": "U01GL0ALG2K",
+                "user_team": "THKEQG3CG",
+                "editable": false,
+                "size": 65280,
+                "mode": "hosted",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url_private": "https://files.slack.com/files-pri/THKEQG3CG-F045W72FZ5K/_________________9___.pdf",
+                "url_private_download": "https://files.slack.com/files-pri/THKEQG3CG-F045W72FZ5K/download/_________________9___.pdf",
+                "media_display_type": "unknown",
+                "thumb_pdf": "https://files.slack.com/files-tmb/THKEQG3CG-F045W72FZ5K-906a85b7b1/_________________9____thumb_pdf.png",
+                "thumb_pdf_w": 911,
+                "thumb_pdf_h": 1286,
+                "permalink": "https://kyutech-proken.slack.com/files/U01GL0ALG2K/F045W72FZ5K/_________________9___.pdf",
+                "permalink_public": "https://slack-files.com/THKEQG3CG-F045W72FZ5K-913ef99b61",
+                "is_starred": false,
+                "has_rich_preview": false,
+                "file_access": "visible"
+            }
+        ],
+        "upload": false,
+        "user": "U01GL0ALG2K",
+        "display_as_bot": false,
+        "ts": "1665479611.793039",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "yOj",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "UTB90C48Z"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n猪平先生\nこちら9月分の活動報告書です。\n確認よろしくお願いいたします。"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "client_msg_id": "8b2db7af-3e16-44b6-8051-aed563faedfd",
+        "thread_ts": "1665479611.793039",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1665479756.734559",
+        "reply_users": [
+            "UTB90C48Z"
+        ],
+        "is_locked": false,
+        "subscribed": false
+    },
+    {
+        "client_msg_id": "4fc57744-f513-4e39-b97e-ee1b54b3d731",
+        "type": "message",
+        "text": "<!everyone>\n↑\nこちらに入ってください！",
+        "user": "UJL2P5KCG",
+        "ts": "1664532100.195269",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "l/RYP",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "everyone"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n↑\nこちらに入ってください！"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG"
+    },
+    {
+        "client_msg_id": "e4408985-8867-4f1c-9b31-5d5c2f185bcb",
+        "type": "message",
+        "text": "<https://us06web.zoom.us/j/87004025799?pwd=UW5tSUZZWkxBSUtEcWthU0JGNlhsZz09>\nLT待機場所（改）",
+        "user": "U017A41CYH1",
+        "ts": "1664532036.770239",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "28W",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "link",
+                                "url": "https://us06web.zoom.us/j/87004025799?pwd=UW5tSUZZWkxBSUtEcWthU0JGNlhsZz09"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nLT待機場所（改）"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG",
+        "edited": {
+            "user": "U017A41CYH1",
+            "ts": "1664532104.000000"
+        }
+    },
+    {
+        "client_msg_id": "385c138a-88a4-47f2-afed-d69c622e2221",
+        "type": "message",
+        "text": "LT-Hubです！\n<https://lt-hub.web.app/events/bs8IYNdVMiMl64hroT3M>",
+        "user": "U01GL0ALG2K",
+        "ts": "1664000440.709769",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "A9QEP",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "LT-Hubです！\n"
+                            },
+                            {
+                                "type": "link",
+                                "url": "https://lt-hub.web.app/events/bs8IYNdVMiMl64hroT3M"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG",
+        "thread_ts": "1664000440.709769",
+        "reply_count": 1,
+        "reply_users_count": 1,
+        "latest_reply": "1664530386.152219",
+        "reply_users": [
+            "U017A41CYH1"
+        ],
+        "is_locked": false,
+        "subscribed": false,
+        "reactions": [
+            {
+                "name": "white_check_mark",
+                "users": [
+                    "U017A41CYH1",
+                    "UJL2P5KCG"
+                ],
+                "count": 2
+            }
+        ]
+    },
+    {
+        "client_msg_id": "07ffa882-6e97-4631-826d-a14fad7bff59",
+        "type": "message",
+        "text": "*<!everyone>*\n次回のLT会は*9月30日(金) 18:30~20:00*に開催します！\n参加できない方々は後日公開されるアーカイブをぜひご覧ください！\n時間の相談や質問があれば気軽に相談してください！\n\nGYMLABOのワーク1-2で開催します！\n是非お越しください！",
+        "user": "U01GL0ALG2K",
+        "ts": "1663647910.118569",
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "AbGNg",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "broadcast",
+                                "range": "everyone",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n次回のLT会は"
+                            },
+                            {
+                                "type": "text",
+                                "text": "9月30日(金) 18:30~20:00",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "に開催します！\n参加できない方々は後日公開されるアーカイブをぜひご覧ください！\n時間の相談や質問があれば気軽に相談してください！\n\nGYMLABOのワーク1-2で開催します！\n是非お越しください！"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "team": "THKEQG3CG",
+        "thread_ts": "1663647910.118569",
+        "reply_count": 10,
+        "reply_users_count": 3,
+        "latest_reply": "1664022493.118089",
+        "reply_users": [
+            "U01GL0ALG2K",
+            "U017A41CYH1",
+            "UJKA1H51S"
+        ],
+        "is_locked": false,
+        "subscribed": false,
+        "reactions": [
+            {
+                "name": "参戦",
+                "users": [
+                    "U017A41CYH1",
+                    "UJL2P5KCG"
+                ],
+                "count": 2
+            },
+            {
+                "name": "murisou",
+                "users": [
+                    "UHNBTKANR"
+                ],
+                "count": 1
+            }
+        ]
+    }
+]

@@ -1,11 +1,8 @@
-# https://infinite-earth-07156.herokuapp.com
-
 from flask import Flask, request
 import json
 import requests
 
-
-
+app = Flask(__name__)
 token = "xoxb-597500547424-4511524546932-o3RDC4fjQtLnQOvDn1RVhTz8"
 headers = {"Authorization": "Bearer " + token}
 
@@ -20,35 +17,26 @@ def get_channel_id():
     for i in channel_data["channels"]:
         channel_id_list.append(i["id"])
     return channel_id_list #配列を返す
-
 # for j in get_channel_id():
 #     print(j)
 
 
-
-#全てのチャンネルからメッセージを取得
+#チャンネルからメッセージを取得
 def get_messages():
-    url = 'https://slack.com/api/conversations.history'
-    # for i in get_channel_ID:
-    #     payload = {
-    #     "channel": i
-    #     }   
-    #     r = requests.get(url, headers=headers, params=payload)
-    #     archive = r.json()
-    #     print(archive)    
+    url = 'https://slack.com/api/conversations.history'    
     payload = {
-        "channel": "CHKEQGFUG"
+        "channel": "CHKEQGFUG", #適当な変数に後で変える
+        'include_all_metadata': True
     }
     r = requests.get(url, headers=headers, params=payload)
     history = r.json()
     messages = history["messages"]
-    messages_json = json.dumps(messages, sort_keys=True,ensure_ascii=False, indent=2)
-    print(messages_json)   
-    return messages
-    
-get_messages()
-
-
+    messages.reverse()      #messages配列の順番を逆にした
+    messages_json = json.dumps(messages, ensure_ascii=False, indent=4)   
+    # print(messages_json)
+    # with open('test.json', 'w') as f:
+    #     json.dump(messages, f, ensure_ascii=False, indent=4)
+    return messages_json
 
 
 #よくわからん機能
@@ -63,3 +51,14 @@ def get_archive():
     return archive
 
 # get_archive()
+
+@app.route('/', methods=["GET"])
+def return_messages():
+    return get_messages()
+    
+    
+if __name__ == '__main__':
+    app.debug = True
+    app.run(debug=True, host='0.0.0.0', port=8081)
+    
+# https://infinite-earth-07156.herokuapp.com
