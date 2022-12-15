@@ -67,14 +67,14 @@ def get_archive():
     return archive
 
 
-# @app.route('/', methods=["GET"])
-# def return_messages():
-#     return get_replies()
+@app.route('/', methods=["GET"])
+def return_messages():
+    return get_replies()
     
 
-# if __name__ == '__main__':
-#     app.debug = True
-#     app.run(debug=True, host='0.0.0.0', port=8081)
+if __name__ == '__main__':
+    app.debug = True
+    app.run(debug=True, host='0.0.0.0', port=8081)
     
 # https://infinite-earth-07156.herokuapp.com
 
