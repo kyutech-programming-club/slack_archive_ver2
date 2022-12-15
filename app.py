@@ -49,8 +49,8 @@ def get_replies():
     }
     r = requests.get(url, headers=headers, params=data)
     replies = r.json()
-    replies = replies['messsages']
-    replies_json = json.dumps(replies, ensure_ascii=False, indent=4)   
+    
+    replies_json = json.dumps(replies["messages"], ensure_ascii=False, indent=4)   
     print(replies_json)
     return replies
 
