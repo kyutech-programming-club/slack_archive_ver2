@@ -3,6 +3,7 @@ import json
 import requests
 import pandas as pd
 
+
 app = Flask(__name__)
 token = "xoxb-597500547424-4511524546932-o3RDC4fjQtLnQOvDn1RVhTz8"
 headers = {"Authorization": "Bearer " + token}
@@ -39,7 +40,6 @@ def get_messages(id):
     # with open('test.json', 'w') as f:
     #     json.dump(messages, f, ensure_ascii=False, indent=4)
     return messages_json
-get_messages('CRSDL3YNP')
 
 
 
