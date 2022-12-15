@@ -25,11 +25,11 @@ def get_channel_id():
 #チャンネルからメッセージを取得
 def get_messages(id):
     url = 'https://slack.com/api/conversations.history'    
-    payload = {
+    data = {
         "channel": id, #適当な変数(チャンネルid)に後で変える
         'include_all_metadata': True
     }
-    r = requests.get(url, headers=headers, params=payload)
+    r = requests.get(url, headers=headers, params=data)
     history = r.json()
     messages = history["messages"]
     messages.reverse()      #messages配列の順番を逆にした
@@ -47,9 +47,12 @@ def get_replies():
         "channel": "CRSDL3YNP",
         "ts": "1670979340.818239",
     }
-    r = requests.get(url, headers=headers, data=data)
+    r = requests.get(url, headers=headers, params=data)
     replies = r.json()
+    replies_json = json.dumps(replies, ensure_ascii=False, indent=4)   
+    print(replies_json)
     return replies
+get_replies()
 
 
 #よくわからん機能
@@ -64,14 +67,14 @@ def get_archive():
     return archive
 
 
-@app.route('/', methods=["GET"])
-def return_messages():
-    return get_replies()
+# @app.route('/', methods=["GET"])
+# def return_messages():
+#     return get_replies()
     
 
-if __name__ == '__main__':
-    app.debug = True
-    app.run(debug=True, host='0.0.0.0', port=8081)
+# if __name__ == '__main__':
+#     app.debug = True
+#     app.run(debug=True, host='0.0.0.0', port=8081)
     
 # https://infinite-earth-07156.herokuapp.com
 
