@@ -52,7 +52,7 @@ def get_replies():
     replies_json = json.dumps(replies, ensure_ascii=False, indent=4)   
     print(replies_json)
     return replies
-get_replies()
+
 
 
 #よくわからん機能
