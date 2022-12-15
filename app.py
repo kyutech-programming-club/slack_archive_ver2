@@ -49,8 +49,8 @@ def get_replies():
     }
     r = requests.get(url, headers=headers, params=data)
     replies = r.json()
-    
-    replies_json = json.dumps(replies["messages"], ensure_ascii=False, indent=4)   
+    replies = replies['messages']
+    replies_json = json.dumps(replies, ensure_ascii=False, indent=4)   
     print(replies_json)
     return replies
 
@@ -75,7 +75,7 @@ def return_messages():
 
 if __name__ == '__main__':
     app.debug = True
-    app.run(debug=True, host='0.0.0.0', port=8081)
+    app.run(debug=True, host='0.0.0.0', port=8090)
     
 # https://infinite-earth-07156.herokuapp.com
 
