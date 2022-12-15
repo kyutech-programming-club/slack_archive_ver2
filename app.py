@@ -18,8 +18,7 @@ def get_channel_id():
     for i in channel_data["channels"]:
         channel_id_list.append(i["id"])
     return channel_id_list #配列を返す
-# for j in get_channel_id():
-#     print(j)
+
 
 
 
@@ -41,6 +40,17 @@ def get_messages(id):
     return messages_json
 
 
+#メッセージのリプライを取得
+def get_replies():
+    url = 'https://slack.com/api/conversations.replies'
+    data = {
+        "channel": "CRSDL3YNP",
+        "ts": "1670979340.818239",
+    }
+    r = requests.get(url, headers=headers, data=data)
+    replies = r.json()
+    return replies
+
 
 #よくわからん機能
 def get_archive():
@@ -53,15 +63,12 @@ def get_archive():
     print(archive)
     return archive
 
-# get_archive()
-
-
 
 @app.route('/', methods=["GET"])
 def return_messages():
-    return get_messages('CRSDL3YNP')
+    return get_replies()
     
- 
+
 if __name__ == '__main__':
     app.debug = True
     app.run(debug=True, host='0.0.0.0', port=8081)
