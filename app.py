@@ -1,17 +1,12 @@
 from flask import Flask, request
 import json
 import requests
-import sqlite3
 import pandas as pd
 
 app = Flask(__name__)
 token = "xoxb-597500547424-4511524546932-o3RDC4fjQtLnQOvDn1RVhTz8"
 headers = {"Authorization": "Bearer " + token}
 
-
-
-db_name = "sqlite-sakila.db"
-connection = sqlite3.connect()
 
 #ワークスペース内の全チャンネルのID取得
 def get_channel_id():
@@ -27,6 +22,7 @@ def get_channel_id():
 #     print(j)
 
 
+
 #チャンネルからメッセージを取得
 def get_messages(id):
     url = 'https://slack.com/api/conversations.history'    
@@ -39,10 +35,12 @@ def get_messages(id):
     messages = history["messages"]
     messages.reverse()      #messages配列の順番を逆にした
     messages_json = json.dumps(messages, ensure_ascii=False, indent=4)   
-    # print(messages_json)
+    print(messages_json)
     # with open('test.json', 'w') as f:
     #     json.dump(messages, f, ensure_ascii=False, indent=4)
     return messages_json
+get_messages('CRSDL3YNP')
+
 
 
 #よくわからん機能
@@ -58,9 +56,11 @@ def get_archive():
 
 # get_archive()
 
+
+
 @app.route('/', methods=["GET"])
 def return_messages():
-    return get_messages()
+    return get_messages('CRSDL3YNP')
     
  
 if __name__ == '__main__':
@@ -70,6 +70,7 @@ if __name__ == '__main__':
 # https://infinite-earth-07156.herokuapp.com
 
 
+
 #関数をfor文で回したら全チャンネルのメッセージとれるかも
-for i in get_channel_id:
-    get_messages(i)
+# for id in get_channel_id():
+#     get_messages(id)
