@@ -1,11 +1,17 @@
 from flask import Flask, request
 import json
 import requests
+import sqlite3
+import pandas as pd
 
 app = Flask(__name__)
 token = "xoxb-597500547424-4511524546932-o3RDC4fjQtLnQOvDn1RVhTz8"
 headers = {"Authorization": "Bearer " + token}
 
+
+
+db_name = "sqlite-sakila.db"
+connection = sqlite3.connect()
 
 #ワークスペース内の全チャンネルのID取得
 def get_channel_id():
@@ -22,10 +28,10 @@ def get_channel_id():
 
 
 #チャンネルからメッセージを取得
-def get_messages():
+def get_messages(id):
     url = 'https://slack.com/api/conversations.history'    
     payload = {
-        "channel": "CHKEQGFUG", #適当な変数に後で変える
+        "channel": id, #適当な変数(チャンネルid)に後で変える
         'include_all_metadata': True
     }
     r = requests.get(url, headers=headers, params=payload)
@@ -56,9 +62,14 @@ def get_archive():
 def return_messages():
     return get_messages()
     
-    
+ 
 if __name__ == '__main__':
     app.debug = True
     app.run(debug=True, host='0.0.0.0', port=8081)
     
 # https://infinite-earth-07156.herokuapp.com
+
+
+#関数をfor文で回したら全チャンネルのメッセージとれるかも
+for i in get_channel_id:
+    get_messages(i)
