@@ -12,57 +12,87 @@ token = "xoxb-597500547424-4511524546932-o3RDC4fjQtLnQOvDn1RVhTz8"
 headers = {"Authorization": "Bearer " + token}
 
 
-
-
 # ワークスペース内の全チャンネルのID取得
-def get_channel_id():
-    url = 'https://slack.com/api/conversations.list'
-    r = requests.get(url, headers=headers)
-    channel_data = r.json()
-    channels = channel_data["channels"]
-    channel_id_list = []  # この配列にIDを格納
-    for i in channels:
-        channel_id_list.append(i["id"])
-    print(channel_id_list)
-    return channel_id_list  # 配列を返す
+# def get_channel_id():
+#     url = 'https://slack.com/api/conversations.list'
+#     r = requests.get(url, headers=headers)
+#     channel_data = r.json()
+#     channels = channel_data["channels"]
+#     channel_id_list = []  # この配列にIDを格納
+#     for i in channels:
+#         channel_id_list.append(i["id"])
+#     return channel_id_list  # 配列を返す
+channel_id_list = ["CRRLNR1AM", "CHKEQGFUG", "CRSDL3YNP", "C03CR11BLNS"]
 
 
-def send_message():
-    url = "https://slack.com/api/chat.postMessage"
-    data = {
-        'channel': "C03CR11BLNS",
-        'text': "botが送れる文字数のテスト"
-    }
-    r = requests.post(url, headers=headers, data=data)
-    print(r.json())
-
-
+# # チャンネルからメッセージを取得
+# def get_messages(id, today, oldest):
+#     url = 'https://slack.com/api/conversations.history'
+#     data = {
+#         "channel": id,
+#         "include_all_metadata": False,
+#         "oldest": oldest
+#     }
+#     r = requests.get(url, headers=headers, params=data)
+#     history = r.json()
+#     messages = history["messages"]
+#     messages.reverse()
+#     messages_json = json.dumps(messages, ensure_ascii=False, indent=4)
+#     with open(f'{today}_{id}.json', 'w') as f:
+#         json.dump(messages, f, ensure_ascii=False, indent=4)
+#     return messages_json
 
 # チャンネルからメッセージを取得
-def get_messages(id,ts):
+def get_messages(id):
     url = 'https://slack.com/api/conversations.history'
     data = {
-        "channel": id, 
-        "include_all_metadata": True,
-        "oldest": ts
+        "channel": id,
+        "include_all_metadata": False,
+        # "oldest": oldest
     }
     r = requests.get(url, headers=headers, params=data)
     history = r.json()
     messages = history["messages"]
-    # messages.reverse()
-    messages_json = json.dumps(messages, ensure_ascii=False, indent=4)
-    with open('test.json', 'w') as f:
-        json.dump(messages, f, ensure_ascii=False, indent=4)
-    return messages_json
+    messages.reverse()
+    formatted_messages = []
+    for i in messages:
+        if "files" not in i:
+            formatted_messages.append({
+                "user": i["user"],
+                "ts": i["ts"],
+                "text": i["text"], })
+        else:
+            files = []
+            for j in i["files"]:
+                files.append({
+                    "name": j["name"],
+                    "file_url": j["url_private"]
+                })
+            formatted_messages.append({
+                "user": i["user"],
+                "ts": i["ts"],
+                "text": i["text"],
+                "files": files
+                })
+        # else:
+        #     for j in i["files"]:
+        #         formatted_messages.append({
+        #             "user": i["user"],
+        #             "ts": i["ts"],
+        #             "text": i["text"],
+        #             "files": i["files"][j]})
+    messages_json = json.dumps(
+        formatted_messages, ensure_ascii=False, indent=4)
+    with open('test_messages.json', 'w') as f:
+        json.dump(formatted_messages, f, ensure_ascii=False, indent=4)
+    return history
 
 
-#データサーバーに送るためにmessagesとrepliesをいい感じにまとめる
-def format_messages(id):
-
-    return ""
-
+get_messages("CS1U1M8AZ")
 
 # メッセージのリプライを取得
+
+
 def get_replies():
     url = 'https://slack.com/api/conversations.replies'
     data = {
@@ -76,6 +106,22 @@ def get_replies():
     with open('replies.json', 'w') as f:
         json.dump(replies, f, ensure_ascii=False, indent=4)
     return replies
+
+
+# データサーバーに送るためにmessagesとrepliesをいい感じに合体
+def format_messages(id):
+
+    return ""
+
+
+def send_message():
+    url = "https://slack.com/api/chat.postMessage"
+    data = {
+        'channel': "C03CR11BLNS",
+        'text': "botが送れる文字数のテスト"
+    }
+    r = requests.post(url, headers=headers, data=data)
+    print(r.json())
 
 
 # よくわからん機能
@@ -107,31 +153,31 @@ def get_archive():
 #     get_messages(id)
 
 
-
-
-while True:
+# while True:
     now = datetime.datetime.now()
-    #今月一日０時０分のdatetime
-    now_ts_assoc = datetime.datetime.strptime(f'{now.year}-{now.month}-01 00:00:00', "%Y-%m-%d %H:%M:%S") 
-    #今月一日０時０分のunixts
-    now_ts = now_ts_assoc.timestamp()
-    #先月一日のunixts
-    #今月一日０時０分のunixtsから先月の秒数(3600*24*日数)を引いている
+    # 今月一日０時０分のdatetime
+    now_dt = datetime.datetime.strptime(
+        f'{now.year}-{now.month}-01 00:00:00', "%Y-%m-%d %H:%M:%S")
+    # 今月一日０時０分のunixts
+    now_ts = now_dt.timestamp()
+    # 先月一日のunixts
+    # 今月一日０時０分のunixtsから先月の秒数(3600*24*日数)を引いている
     # 32400足しているのは日本時間に変換するため
-    oldest = int(int(now_ts) - calendar.monthrange(now.year, now.month - 1)[1] * 86400 + 32400) 
+    oldest = int(int(now_ts) - calendar.monthrange(now.year,
+                 now.month - 1)[1] * 86400 + 32400)
 
-    target_day = 17 
+    target_day = 19
 
     if now.day == target_day:
-        get_messages('CHKEQGFUG',oldest)
-        print("test3")
-        # for i in get_channel_id():
-        #     format_messages(i)  
-        time.sleep(10)    
+        today = str(now.year) + str(now.month)
+
+        for id in channel_id_list:
+            get_messages(id, today, oldest)
+
         while now.day == target_day:
-            time.sleep(10)
+            print("finish")
     time.sleep(10)
- 
 
 
-#get_replies()
+# チャンネルidのリストは手作業で作る
+# get_replies()

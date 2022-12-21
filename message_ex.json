@@ -1,22 +1,37 @@
 [
     {
-        "text": "<!everyone>\nlt-hubとzoomです！\nよろしくお願いします！\nlt-hub: <https://lt-hub.web.app/events/Af9MaSebX4wZxzPxQ1UF>\nzoom: <https://us04web.zoom.us/j/78802359008?pwd=gjjSAQI281K4Wr7V2QTYeJr9HpS1If.1>",
         "user": "U01GL0ALG2K",
         "ts": "1669971812.733809",
+        "text": "<!everyone>\nlt-hubとzoomです！\nよろしくお願いします！\nlt-hub: <https://lt-hub.web.app/events/Af9MaSebX4wZxzPxQ1UF>\nzoom: <https://us04web.zoom.us/j/78802359008?pwd=gjjSAQI281K4Wr7V2QTYeJr9HpS1If.1>", 
+        "files":"",    
         "replies": [
             {
-                "text": "あいうえお",
                 "user": "U01GL0ALG2K",
-                "ts": "1669971812.733809"
+                "ts": "1669971812.733809",
+                "text": "あいうえお"         
             },
             {
-                "text": "hoge",
                 "user": "ahi",
-                "ts": "0000000000000000"
+                "ts": "0000000000000000",
+                "text": "hoge"
             }
         ]
     },
     {
-        
+        "user": "U01GL0ALG2K",
+        "ts": "1669971812.733809",
+        "text": "<!everyone>\nlt-hubとzoomです！\nよろしくお願いします！\nlt-hub: <https://lt-hub.web.app/events/Af9MaSebX4wZxzPxQ1UF>\nzoom: <https://us04web.zoom.us/j/78802359008?pwd=gjjSAQI281K4Wr7V2QTYeJr9HpS1If.1>",     
+        "replies": [
+            {
+                "user": "U01GL0ALG2K",
+                "ts": "1669971812.733809",
+                "text": "あいうえお"         
+            },
+            {
+                "user": "ahi",
+                "ts": "0000000000000000",
+                "text": "hoge"
+            }
+        ]
     }
 ]
