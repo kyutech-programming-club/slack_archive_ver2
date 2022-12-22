@@ -145,7 +145,7 @@ while True:
     target_day = 1
     if now.day == target_day:
         if now.month == 1:
-            last_month = str(now.year - 1) + str(now.month - 1)
+            last_month = str(now.year - 1) + str(12)
         else:
             last_month = str(now.year) + str(now.month - 1)
 
