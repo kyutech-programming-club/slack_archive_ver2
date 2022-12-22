@@ -26,6 +26,24 @@ headers = {"Authorization": "Bearer " + token}
 channel_id_list = ["CRRLNR1AM", "CHKEQGFUG", "CRSDL3YNP", "C03CR11BLNS"]
 
 
+# # チャンネルからメッセージを取得
+# def get_messages(id, today, oldest):
+#     url = 'https://slack.com/api/conversations.history'
+#     data = {
+#         "channel": id,
+#         "include_all_metadata": False,
+#         "oldest": oldest
+#     }
+#     r = requests.get(url, headers=headers, params=data)
+#     history = r.json()
+#     messages = history["messages"]
+#     messages.reverse()
+#     messages_json = json.dumps(messages, ensure_ascii=False, indent=4)
+#     with open(f'{today}_{id}.json', 'w') as f:
+#         json.dump(messages, f, ensure_ascii=False, indent=4)
+#     return messages_json
+
+
 # メッセージのリプライを取得
 def get_replies(id, ts):
     url = 'https://slack.com/api/conversations.replies'
@@ -49,12 +67,12 @@ def get_replies(id, ts):
 
 
 # チャンネルからメッセージを取得
-def get_messages(id):
+def get_messages(id, oldest, today):
     url = 'https://slack.com/api/conversations.history'
     data = {
         "channel": id,
         "include_all_metadata": False,
-        # "oldest": oldest
+        "oldest": oldest
     }
     r = requests.get(url, headers=headers, params=data)
     history = r.json()
@@ -83,16 +101,34 @@ def get_messages(id):
                 "ts": i["ts"],
                 "text": i["text"],
                 "files": files,
-                "replies": replies,
+                "replies": replies
             })
+
     messages_json = json.dumps(
         formatted_messages, ensure_ascii=False, indent=4)
-    with open('test_messages.json', 'w') as f:
+    with open(f'{today}_{id}.json', 'w') as f:
         json.dump(formatted_messages, f, ensure_ascii=False, indent=4)
     return formatted_messages
 
+# get_messages("CRRLNR1AM")
 
-get_messages("CRRLNR1AM")
+
+# get_replies("CRRLNR1AM", "1670987280.647039")
+
+# def get_replies():
+#     url = 'https://slack.com/api/conversations.replies'
+#     data = {
+#         "channel": "CRRLNR1AM",
+#         "ts": "1670985270.379639",
+#     }
+#     r = requests.get(url, headers=headers, params=data)
+#     replies = r.json()
+#     replies = replies['messages']
+#     replies_json = json.dumps(replies, ensure_ascii=False, indent=4)
+#     with open('replies.json', 'w') as f:
+#         json.dump(replies, f, ensure_ascii=False, indent=4)
+#     return replies
+# get_replies()
 
 
 def send_message():
@@ -134,7 +170,7 @@ def get_archive():
 #     get_messages(id)
 
 
-# while True:
+while True:
     now = datetime.datetime.now()
     # 今月一日０時０分のdatetime
     now_dt = datetime.datetime.strptime(
@@ -147,13 +183,13 @@ def get_archive():
     oldest = int(int(now_ts) - calendar.monthrange(now.year,
                  now.month - 1)[1] * 86400 + 32400)
 
-    target_day = 19
+    target_day = 22
 
     if now.day == target_day:
         today = str(now.year) + str(now.month)
 
         for id in channel_id_list:
-            get_messages(id, today, oldest)
+            get_messages(id, oldest, today)
 
         while now.day == target_day:
             print("finish")
