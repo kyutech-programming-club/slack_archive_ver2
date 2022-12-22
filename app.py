@@ -142,7 +142,7 @@ while True:
     oldest = int(int(now_ts) - calendar.monthrange(now.year,
                  now.month - 1)[1] * 86400 + time_difference)
     #メッセージを取得する日
-    target_day = 22
+    target_day = 1
     if now.day == target_day:
         if now.month == 1:
             last_month = str(now.year - 1) + str(now.month - 1)
