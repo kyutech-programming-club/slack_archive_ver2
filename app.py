@@ -8,6 +8,7 @@ import pandas as pd
 
 
 app = Flask(__name__)
+
 token = "xoxb-597500547424-4511524546932-o3RDC4fjQtLnQOvDn1RVhTz8"
 headers = {"Authorization": "Bearer " + token}
 
@@ -25,22 +26,27 @@ headers = {"Authorization": "Bearer " + token}
 channel_id_list = ["CRRLNR1AM", "CHKEQGFUG", "CRSDL3YNP", "C03CR11BLNS"]
 
 
-# # チャンネルからメッセージを取得
-# def get_messages(id, today, oldest):
-#     url = 'https://slack.com/api/conversations.history'
-#     data = {
-#         "channel": id,
-#         "include_all_metadata": False,
-#         "oldest": oldest
-#     }
-#     r = requests.get(url, headers=headers, params=data)
-#     history = r.json()
-#     messages = history["messages"]
-#     messages.reverse()
-#     messages_json = json.dumps(messages, ensure_ascii=False, indent=4)
-#     with open(f'{today}_{id}.json', 'w') as f:
-#         json.dump(messages, f, ensure_ascii=False, indent=4)
-#     return messages_json
+# メッセージのリプライを取得
+def get_replies(id, ts):
+    url = 'https://slack.com/api/conversations.replies'
+    data = {
+        "channel": id,
+        "ts": ts,
+    }
+    r = requests.get(url, headers=headers, params=data)
+    replies = r.json()
+    replies = replies['messages']
+    formatted_replies = []
+    for i in replies:
+        formatted_replies.append({
+            "user": i["user"],
+            "ts": i["ts"],
+            "text": i["text"],
+        })
+    # formatted_replies配列の０番目はリプライされたメッセージなので必要ない。配列の０番目を消す
+    formatted_replies.pop(0)
+    return formatted_replies
+
 
 # チャンネルからメッセージを取得
 def get_messages(id):
@@ -56,11 +62,15 @@ def get_messages(id):
     messages.reverse()
     formatted_messages = []
     for i in messages:
+        replies = get_replies(id, i["ts"])
         if "files" not in i:
             formatted_messages.append({
                 "user": i["user"],
                 "ts": i["ts"],
-                "text": i["text"], })
+                "text": i["text"],
+                "files": [],
+                "replies": replies
+            })
         else:
             files = []
             for j in i["files"]:
@@ -72,46 +82,17 @@ def get_messages(id):
                 "user": i["user"],
                 "ts": i["ts"],
                 "text": i["text"],
-                "files": files
-                })
-        # else:
-        #     for j in i["files"]:
-        #         formatted_messages.append({
-        #             "user": i["user"],
-        #             "ts": i["ts"],
-        #             "text": i["text"],
-        #             "files": i["files"][j]})
+                "files": files,
+                "replies": replies,
+            })
     messages_json = json.dumps(
         formatted_messages, ensure_ascii=False, indent=4)
     with open('test_messages.json', 'w') as f:
         json.dump(formatted_messages, f, ensure_ascii=False, indent=4)
-    return history
+    return formatted_messages
 
 
-get_messages("CS1U1M8AZ")
-
-# メッセージのリプライを取得
-
-
-def get_replies():
-    url = 'https://slack.com/api/conversations.replies'
-    data = {
-        "channel": "CRSDL3YNP",
-        "ts": "1670979340.818239",
-    }
-    r = requests.get(url, headers=headers, params=data)
-    replies = r.json()
-    replies = replies['messages']
-    replies_json = json.dumps(replies, ensure_ascii=False, indent=4)
-    with open('replies.json', 'w') as f:
-        json.dump(replies, f, ensure_ascii=False, indent=4)
-    return replies
-
-
-# データサーバーに送るためにmessagesとrepliesをいい感じに合体
-def format_messages(id):
-
-    return ""
+get_messages("CRRLNR1AM")
 
 
 def send_message():
