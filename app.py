@@ -138,8 +138,9 @@ def get_messages(id, oldest):
 
 
 def send_to_database(id, oldest, today):
+    messages = get_messages(id, oldest)
     doc_ref = db.collection("messages").document(today)
-    doc_ref.set(get_messages(id, oldest))
+    doc_ref.set({"message": firestore.ArrayUnion(messages)})
 
 
 
