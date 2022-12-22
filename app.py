@@ -64,8 +64,6 @@ def get_replies(id, ts):
                 "files": files
             })
     formatted_replies.pop(0)
-    with open('replies.json', 'w') as f:
-        json.dump(formatted_replies, f, ensure_ascii=False, indent=4)
     return formatted_replies
 
 
