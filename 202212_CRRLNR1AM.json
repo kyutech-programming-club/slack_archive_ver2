@@ -1,235 +1,79 @@
 [
     {
-        "type": "message",
+        "user": "U03FHSPG3BK",
+        "ts": "1670943931.945099",
         "text": "slackのメッセージを保存する機能作ってます。",
         "files": [
             {
-                "id": "F04F2RF06MS",
-                "created": 1670943895,
-                "timestamp": 1670943895,
                 "name": "image.png",
-                "title": "image.png",
-                "mimetype": "image/png",
-                "filetype": "png",
-                "pretty_type": "PNG",
-                "user": "U03FHSPG3BK",
-                "user_team": "THKEQG3CG",
-                "editable": false,
-                "size": 790335,
-                "mode": "hosted",
-                "is_external": false,
-                "external_type": "",
-                "is_public": true,
-                "public_url_shared": false,
-                "display_as_bot": false,
-                "username": "",
-                "url_private": "https://files.slack.com/files-pri/THKEQG3CG-F04F2RF06MS/image.png",
-                "url_private_download": "https://files.slack.com/files-pri/THKEQG3CG-F04F2RF06MS/download/image.png",
-                "media_display_type": "unknown",
-                "thumb_64": "https://files.slack.com/files-tmb/THKEQG3CG-F04F2RF06MS-2562280dab/image_64.png",
-                "thumb_80": "https://files.slack.com/files-tmb/THKEQG3CG-F04F2RF06MS-2562280dab/image_80.png",
-                "thumb_360": "https://files.slack.com/files-tmb/THKEQG3CG-F04F2RF06MS-2562280dab/image_360.png",
-                "thumb_360_w": 360,
-                "thumb_360_h": 213,
-                "thumb_480": "https://files.slack.com/files-tmb/THKEQG3CG-F04F2RF06MS-2562280dab/image_480.png",
-                "thumb_480_w": 480,
-                "thumb_480_h": 284,
-                "thumb_160": "https://files.slack.com/files-tmb/THKEQG3CG-F04F2RF06MS-2562280dab/image_160.png",
-                "thumb_720": "https://files.slack.com/files-tmb/THKEQG3CG-F04F2RF06MS-2562280dab/image_720.png",
-                "thumb_720_w": 720,
-                "thumb_720_h": 426,
-                "thumb_800": "https://files.slack.com/files-tmb/THKEQG3CG-F04F2RF06MS-2562280dab/image_800.png",
-                "thumb_800_w": 800,
-                "thumb_800_h": 474,
-                "thumb_960": "https://files.slack.com/files-tmb/THKEQG3CG-F04F2RF06MS-2562280dab/image_960.png",
-                "thumb_960_w": 960,
-                "thumb_960_h": 569,
-                "thumb_1024": "https://files.slack.com/files-tmb/THKEQG3CG-F04F2RF06MS-2562280dab/image_1024.png",
-                "thumb_1024_w": 1024,
-                "thumb_1024_h": 606,
-                "original_w": 3840,
-                "original_h": 2274,
-                "thumb_tiny": "AwAcADCmSQetJu9zQetIfpQAbj60u4460lA70AKT780m4+tKelNoAd3pDirX2dD1J/Og2yerfnTSbFdFWjvVn7OnqfzoFunq1PlYXRAcUmV9Ks/Z09TSfZ09Wo5WFz//2Q==",
-                "permalink": "https://kyutech-proken.slack.com/files/U03FHSPG3BK/F04F2RF06MS/image.png",
-                "permalink_public": "https://slack-files.com/THKEQG3CG-F04F2RF06MS-55acf13c16",
-                "is_starred": false,
-                "has_rich_preview": false,
-                "file_access": "visible"
+                "file_url": "https://files.slack.com/files-pri/THKEQG3CG-F04F2RF06MS/image.png"
             }
         ],
-        "upload": false,
-        "user": "U03FHSPG3BK",
-        "display_as_bot": false,
-        "ts": "1670943931.945099",
-        "blocks": [
+        "replies": [
             {
-                "type": "rich_text",
-                "block_id": "53JK",
-                "elements": [
+                "user": "U03FHSPG3BK",
+                "ts": "1671676748.987089",
+                "text": "test",
+                "files": [
                     {
-                        "type": "rich_text_section",
-                        "elements": [
-                            {
-                                "type": "text",
-                                "text": "slackのメッセージを保存する機能作ってます。"
-                            }
-                        ]
+                        "name": "3GaP4wRA_400x400.jpg",
+                        "file_url": "https://files.slack.com/files-pri/THKEQG3CG-F04G9MX5Q3U/3gap4wra_400x400.jpg"
                     }
                 ]
-            }
-        ],
-        "client_msg_id": "ca416039-7ada-4aa2-a503-c4d0a3e3bae6",
-        "reactions": [
-            {
-                "name": "atumori_1",
-                "users": [
-                    "UJKA1H51S",
-                    "U01GL0ALG2K",
-                    "UJL2P5KCG",
-                    "U017A41CYH1",
-                    "UHNBTKANR",
-                    "U01TH3FHH98",
-                    "UHNBU3B2R"
-                ],
-                "count": 7
-            },
-            {
-                "name": "atumori_2",
-                "users": [
-                    "UJKA1H51S",
-                    "U01GL0ALG2K",
-                    "UJL2P5KCG",
-                    "U017A41CYH1",
-                    "UHNBTKANR"
-                ],
-                "count": 5
-            },
-            {
-                "name": "mugennnokanousei",
-                "users": [
-                    "UJL2P5KCG",
-                    "U017A41CYH1",
-                    "UHNBTKANR"
-                ],
-                "count": 3
-            },
-            {
-                "name": "racehorse",
-                "users": [
-                    "UJL2P5KCG",
-                    "U017A41CYH1"
-                ],
-                "count": 2
-            },
-            {
-                "name": "tennsaikayo",
-                "users": [
-                    "UHNBTKANR"
-                ],
-                "count": 1
             }
         ]
     },
     {
-        "client_msg_id": "8502ba81-24e2-4dfa-ae82-fa05e54940d2",
-        "type": "message",
-        "text": "最高かよ",
         "user": "UHNBTKANR",
         "ts": "1670985270.379639",
-        "blocks": [
-            {
-                "type": "rich_text",
-                "block_id": "N13",
-                "elements": [
-                    {
-                        "type": "rich_text_section",
-                        "elements": [
-                            {
-                                "type": "text",
-                                "text": "最高かよ"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "team": "THKEQG3CG"
+        "text": "最高かよ",
+        "files": [],
+        "replies": []
     },
     {
-        "client_msg_id": "1e665bf3-a7b8-4e31-9828-667348ced8ae",
-        "type": "message",
-        "text": "限定公開のYoutubeリンクを保存して、後からまとめて見れるようにしてほしいい〜",
         "user": "UHNBTKANR",
         "ts": "1670985725.433679",
-        "blocks": [
+        "text": "限定公開のYoutubeリンクを保存して、後からまとめて見れるようにしてほしいい〜",
+        "files": [],
+        "replies": []
+    },
+    {
+        "user": "U03FHSPG3BK",
+        "ts": "1670987280.647039",
+        "text": "これ、保存したメッセージをslackそっくりのUIで作ったサイトから見れるようにしようと思ってるんですけど、他にいい案ありますか。slack自体に古いメッセージを再送したら新しいメッセージが見にくそうなので。",
+        "files": [],
+        "replies": [
             {
-                "type": "rich_text",
-                "block_id": "feE",
-                "elements": [
-                    {
-                        "type": "rich_text_section",
-                        "elements": [
-                            {
-                                "type": "text",
-                                "text": "限定公開のYoutubeリンクを保存して、後からまとめて見れるようにしてほしいい〜"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "team": "THKEQG3CG",
-        "reactions": [
+                "user": "UHNBTKANR",
+                "ts": "1670990318.515679",
+                "text": "<@U03FHSPG3BK>\nなるほど、slackそっくりのUIの別サイトか…チャレンジングだけど良いかもね\n\nけど、それをやるなら認証とかセキュリティについてはよく考えた方がいいかも。せっかくslackの認証機能でプロ研メンバーだけ見れてるものを、自作のサイトから見れるようにするってことは少なくともslack並みの仕組みが必要ってことになる。",
+                "files": []
+            },
             {
-                "name": "aguri-",
-                "users": [
-                    "U03FHSPG3BK"
-                ],
-                "count": 1
+                "user": "UHNBTKANR",
+                "ts": "1670990378.587129",
+                "text": "個人的に見にくさ防止なら、再送専用のチャンネルを作るとか、BotとDMでやりとりするとか、シンプルな形でもいいのかなーと思った",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1670990460.484669",
+                "text": "SlackそっくりのUIを作りたいならBOSS達<@UJKA1H51S> <@U01GL0ALG2K> がきっと助けてくれるよ（丸投げ）",
+                "files": []
+            },
+            {
+                "user": "UJL2P5KCG",
+                "ts": "1671074257.710699",
+                "text": "UIそっくりにするのもいいと思うけどいろいろな条件で検索できるサイトとかも使い勝手いいし力つくかも",
+                "files": []
             }
         ]
     },
     {
-        "client_msg_id": "ee8b1fb6-ba3a-430e-88f0-78a6c215e47d",
-        "type": "message",
-        "text": "これ、保存したメッセージをslackそっくりのUIで作ったサイトから見れるようにしようと思ってるんですけど、他にいい案ありますか。slack自体に古いメッセージを再送したら新しいメッセージが見にくそうなので。",
-        "user": "U03FHSPG3BK",
-        "ts": "1670987280.647039",
-        "blocks": [
-            {
-                "type": "rich_text",
-                "block_id": "Rmr8",
-                "elements": [
-                    {
-                        "type": "rich_text_section",
-                        "elements": [
-                            {
-                                "type": "text",
-                                "text": "これ、保存したメッセージをslackそっくりのUIで作ったサイトから見れるようにしようと思ってるんですけど、他にいい案ありますか。slack自体に古いメッセージを再送したら新しいメッセージが見にくそうなので。"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "team": "THKEQG3CG",
-        "thread_ts": "1670987280.647039",
-        "reply_count": 4,
-        "reply_users_count": 2,
-        "latest_reply": "1671074257.710699",
-        "reply_users": [
-            "UHNBTKANR",
-            "UJL2P5KCG"
-        ],
-        "is_locked": false,
-        "subscribed": false
-    },
-    {
-        "type": "message",
-        "subtype": "channel_join",
-        "ts": "1671085037.017469",
         "user": "U04F1FEG2TE",
+        "ts": "1671085037.017469",
         "text": "<@U04F1FEG2TE>さんがチャンネルに参加しました",
-        "inviter": "U03FHSPG3BK"
+        "files": [],
+        "replies": []
     }
 ]

@@ -1,317 +1,298 @@
 [
     {
-        "client_msg_id": "8d11cb19-5977-44b4-bda8-99c742f1b9c4",
-        "type": "message",
-        "text": "<@U01GL0ALG2K> <@UHNBTKANR>\n【解決済み】\n質問です！\nFlutter でHTTPリクエストするなら、\nDioとhttpの二つがあるみたいですけど、\nどっちがいいとかってありますか？",
         "user": "U017KE408EQ",
         "ts": "1668246003.691719",
-        "blocks": [
+        "text": "<@U01GL0ALG2K> <@UHNBTKANR>\n【解決済み】\n質問です！\nFlutter でHTTPリクエストするなら、\nDioとhttpの二つがあるみたいですけど、\nどっちがいいとかってありますか？",
+        "files": [],
+        "replies": [
             {
-                "type": "rich_text",
-                "block_id": "rHf",
-                "elements": [
-                    {
-                        "type": "rich_text_section",
-                        "elements": [
-                            {
-                                "type": "user",
-                                "user_id": "U01GL0ALG2K"
-                            },
-                            {
-                                "type": "text",
-                                "text": " "
-                            },
-                            {
-                                "type": "user",
-                                "user_id": "UHNBTKANR"
-                            },
-                            {
-                                "type": "text",
-                                "text": "\n【解決済み】\n質問です！\nFlutter でHTTPリクエストするなら、\nDioとhttpの二つがあるみたいですけど、\nどっちがいいとかってありますか？"
-                            }
-                        ]
-                    }
-                ]
+                "user": "UJKA1H51S",
+                "ts": "1668246038.054579",
+                "text": "DIOブランド〜",
+                "files": []
+            },
+            {
+                "user": "UJKA1H51S",
+                "ts": "1668246050.820369",
+                "text": "httpの方が良さそう知らんけど",
+                "files": []
+            },
+            {
+                "user": "U017KE408EQ",
+                "ts": "1668246084.688349",
+                "text": "<@UJKA1H51S> dioは名前だけだったか",
+                "files": []
+            },
+            {
+                "user": "UJKA1H51S",
+                "ts": "1668246181.724429",
+                "text": "DIO強いかもしらん",
+                "files": []
+            },
+            {
+                "user": "UJKA1H51S",
+                "ts": "1668246193.968489",
+                "text": "調べた感じ",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1668246880.746649",
+                "text": "httpしか使わんけど、どっちでもええんやないかな\n公式なのはhttpとだけ言っとく",
+                "files": []
+            },
+            {
+                "user": "UJKA1H51S",
+                "ts": "1668246927.670379",
+                "text": "fetchかaxiosみたいな立ち位置ですかね",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1668246969.550139",
+                "text": "ほんとそ",
+                "files": []
+            },
+            {
+                "user": "U017KE408EQ",
+                "ts": "1668250916.388119",
+                "text": "<@UHNBTKANR>\ndioだとロードローラー思い出すので、\n無難にhttp使います",
+                "files": []
+            },
+            {
+                "user": "U017KE408EQ",
+                "ts": "1668250948.545609",
+                "text": "ありがとうございやした！",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1668251285.154019",
+                "text": "ジョジョネタ分からんのやすまん",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1668251305.336179",
+                "text": "技術系かと思いなんのことか分からんくて調べたのはナイショ",
+                "files": []
+            },
+            {
+                "user": "U01GL0ALG2K",
+                "ts": "1668269232.364569",
+                "text": "僕の勝手なイメージですけど、もし割りと大規模になる予定のアプリでしたら、dioとretrofit使って管理したほうが後々楽かもです",
+                "files": []
+            },
+            {
+                "user": "UJKA1H51S",
+                "ts": "1668302429.696949",
+                "text": "俺の勝手なイメージは、Flutterはバージョンがすぐ上がったりするから\nもし変なアプデが入ってdioが対応できないとかなった時に困るから\n大規模なほど標準使ってたらいい感じになりそうなイメージかな",
+                "files": []
             }
-        ],
-        "team": "THKEQG3CG",
-        "edited": {
-            "user": "U017KE408EQ",
-            "ts": "1668250933.000000"
-        },
-        "thread_ts": "1668246003.691719",
-        "reply_count": 14,
-        "reply_users_count": 4,
-        "latest_reply": "1668302429.696949",
-        "reply_users": [
-            "UJKA1H51S",
-            "U017KE408EQ",
-            "UHNBTKANR",
-            "U01GL0ALG2K"
-        ],
-        "is_locked": false,
-        "subscribed": false
+        ]
     },
     {
-        "client_msg_id": "a2f0c642-519e-4dbe-b4d0-6614332243b2",
-        "type": "message",
-        "text": "機械学習の入門書のおすすめ教えてください",
         "user": "U03FHSPG3BK",
         "ts": "1669349918.240809",
-        "blocks": [
+        "text": "機械学習の入門書のおすすめ教えてください",
+        "files": [],
+        "replies": [
             {
-                "type": "rich_text",
-                "block_id": "VmZNr",
-                "elements": [
-                    {
-                        "type": "rich_text_section",
-                        "elements": [
-                            {
-                                "type": "text",
-                                "text": "機械学習の入門書のおすすめ教えてください"
-                            }
-                        ]
-                    }
-                ]
+                "user": "UJL2P5KCG",
+                "ts": "1669350001.744329",
+                "text": "<https://www.oreilly.co.jp/books/9784873117980/>",
+                "files": []
+            },
+            {
+                "user": "UJL2P5KCG",
+                "ts": "1669350060.348259",
+                "text": "これが親切でいいと思う",
+                "files": []
             }
-        ],
-        "team": "THKEQG3CG",
-        "thread_ts": "1669349918.240809",
-        "reply_count": 2,
-        "reply_users_count": 1,
-        "latest_reply": "1669350060.348259",
-        "reply_users": [
-            "UJL2P5KCG"
-        ],
-        "is_locked": false,
-        "subscribed": false
+        ]
     },
     {
-        "type": "message",
+        "user": "U03FHSPG3BK",
+        "ts": "1669967258.860619",
         "text": "助けてください",
         "files": [
             {
-                "id": "F04D8TBDL06",
-                "created": 1669967204,
-                "timestamp": 1669967204,
                 "name": "image.png",
-                "title": "image.png",
-                "mimetype": "image/png",
-                "filetype": "png",
-                "pretty_type": "PNG",
-                "user": "U03FHSPG3BK",
-                "user_team": "THKEQG3CG",
-                "editable": false,
-                "size": 1076202,
-                "mode": "hosted",
-                "is_external": false,
-                "external_type": "",
-                "is_public": true,
-                "public_url_shared": false,
-                "display_as_bot": false,
-                "username": "",
-                "url_private": "https://files.slack.com/files-pri/THKEQG3CG-F04D8TBDL06/image.png",
-                "url_private_download": "https://files.slack.com/files-pri/THKEQG3CG-F04D8TBDL06/download/image.png",
-                "media_display_type": "unknown",
-                "thumb_64": "https://files.slack.com/files-tmb/THKEQG3CG-F04D8TBDL06-e737a56ecf/image_64.png",
-                "thumb_80": "https://files.slack.com/files-tmb/THKEQG3CG-F04D8TBDL06-e737a56ecf/image_80.png",
-                "thumb_360": "https://files.slack.com/files-tmb/THKEQG3CG-F04D8TBDL06-e737a56ecf/image_360.png",
-                "thumb_360_w": 360,
-                "thumb_360_h": 225,
-                "thumb_480": "https://files.slack.com/files-tmb/THKEQG3CG-F04D8TBDL06-e737a56ecf/image_480.png",
-                "thumb_480_w": 480,
-                "thumb_480_h": 300,
-                "thumb_160": "https://files.slack.com/files-tmb/THKEQG3CG-F04D8TBDL06-e737a56ecf/image_160.png",
-                "thumb_720": "https://files.slack.com/files-tmb/THKEQG3CG-F04D8TBDL06-e737a56ecf/image_720.png",
-                "thumb_720_w": 720,
-                "thumb_720_h": 450,
-                "thumb_800": "https://files.slack.com/files-tmb/THKEQG3CG-F04D8TBDL06-e737a56ecf/image_800.png",
-                "thumb_800_w": 800,
-                "thumb_800_h": 500,
-                "thumb_960": "https://files.slack.com/files-tmb/THKEQG3CG-F04D8TBDL06-e737a56ecf/image_960.png",
-                "thumb_960_w": 960,
-                "thumb_960_h": 600,
-                "thumb_1024": "https://files.slack.com/files-tmb/THKEQG3CG-F04D8TBDL06-e737a56ecf/image_1024.png",
-                "thumb_1024_w": 1024,
-                "thumb_1024_h": 640,
-                "original_w": 3840,
-                "original_h": 2400,
-                "thumb_tiny": "AwAeADCoSeeaQE+tHrTR9KAHc+v60c+v60mBRx6/pQAZPrRk+ppD9aSgB596RavnT/8App+lJ/Z+BnzD+VAFI47ikOKvHT+3mfpSf2eP+en6UAUKKvrpwKg+Yefal/s4f89D+VAH/9k=",
-                "permalink": "https://kyutech-proken.slack.com/files/U03FHSPG3BK/F04D8TBDL06/image.png",
-                "permalink_public": "https://slack-files.com/THKEQG3CG-F04D8TBDL06-e3fa4b0963",
-                "is_starred": false,
-                "has_rich_preview": false,
-                "file_access": "visible"
+                "file_url": "https://files.slack.com/files-pri/THKEQG3CG-F04D8TBDL06/image.png"
             }
         ],
-        "upload": false,
-        "user": "U03FHSPG3BK",
-        "display_as_bot": false,
-        "ts": "1669967258.860619",
-        "blocks": [
+        "replies": [
             {
-                "type": "rich_text",
-                "block_id": "ejh",
-                "elements": [
-                    {
-                        "type": "rich_text_section",
-                        "elements": [
-                            {
-                                "type": "text",
-                                "text": "助けてください"
-                            }
-                        ]
-                    }
-                ]
+                "user": "UJL2P5KCG",
+                "ts": "1669967614.035659",
+                "text": "joblibでエラー吐いてそうやから\n`pip install joblib`\nやってみて",
+                "files": []
+            },
+            {
+                "user": "UJL2P5KCG",
+                "ts": "1669967744.058039",
+                "text": "<https://algorithm.joho.info/programming/python/futurewarning-sklearn-externals-joblib/>\n調べたらsklearnのver0.23からjoblibが独立したライブラリになるらしい",
+                "files": []
             }
-        ],
-        "client_msg_id": "38438ff7-bc0b-4b0c-89bb-7031d6509bd0",
-        "thread_ts": "1669967258.860619",
-        "reply_count": 2,
-        "reply_users_count": 1,
-        "latest_reply": "1669967744.058039",
-        "reply_users": [
-            "UJL2P5KCG"
-        ],
-        "is_locked": false,
-        "subscribed": false
+        ]
     },
     {
-        "type": "message",
+        "user": "UHNBTKANR",
+        "ts": "1670226746.424549",
         "text": "Mac童貞ワイ、バ先から型落ちMacもらったんやが、何かしといた方がええことある？",
         "files": [
             {
-                "id": "F04E2SB1UP3",
-                "created": 1670226614,
-                "timestamp": 1670226614,
                 "name": "スクリーンショット 2022-12-05 16.48.34.png",
-                "title": "スクリーンショット 2022-12-05 16.48.34.png",
-                "mimetype": "image/png",
-                "filetype": "png",
-                "pretty_type": "PNG",
-                "user": "UHNBTKANR",
-                "user_team": "THKEQG3CG",
-                "editable": false,
-                "size": 270589,
-                "mode": "hosted",
-                "is_external": false,
-                "external_type": "",
-                "is_public": true,
-                "public_url_shared": false,
-                "display_as_bot": false,
-                "username": "",
-                "url_private": "https://files.slack.com/files-pri/THKEQG3CG-F04E2SB1UP3/____________________________2022-12-05_16.48.34.png",
-                "url_private_download": "https://files.slack.com/files-pri/THKEQG3CG-F04E2SB1UP3/download/____________________________2022-12-05_16.48.34.png",
-                "media_display_type": "unknown",
-                "thumb_64": "https://files.slack.com/files-tmb/THKEQG3CG-F04E2SB1UP3-1eaafb4bf0/____________________________2022-12-05_16.48.34_64.png",
-                "thumb_80": "https://files.slack.com/files-tmb/THKEQG3CG-F04E2SB1UP3-1eaafb4bf0/____________________________2022-12-05_16.48.34_80.png",
-                "thumb_360": "https://files.slack.com/files-tmb/THKEQG3CG-F04E2SB1UP3-1eaafb4bf0/____________________________2022-12-05_16.48.34_360.png",
-                "thumb_360_w": 360,
-                "thumb_360_h": 203,
-                "thumb_480": "https://files.slack.com/files-tmb/THKEQG3CG-F04E2SB1UP3-1eaafb4bf0/____________________________2022-12-05_16.48.34_480.png",
-                "thumb_480_w": 480,
-                "thumb_480_h": 270,
-                "thumb_160": "https://files.slack.com/files-tmb/THKEQG3CG-F04E2SB1UP3-1eaafb4bf0/____________________________2022-12-05_16.48.34_160.png",
-                "thumb_720": "https://files.slack.com/files-tmb/THKEQG3CG-F04E2SB1UP3-1eaafb4bf0/____________________________2022-12-05_16.48.34_720.png",
-                "thumb_720_w": 720,
-                "thumb_720_h": 405,
-                "thumb_800": "https://files.slack.com/files-tmb/THKEQG3CG-F04E2SB1UP3-1eaafb4bf0/____________________________2022-12-05_16.48.34_800.png",
-                "thumb_800_w": 800,
-                "thumb_800_h": 450,
-                "thumb_960": "https://files.slack.com/files-tmb/THKEQG3CG-F04E2SB1UP3-1eaafb4bf0/____________________________2022-12-05_16.48.34_960.png",
-                "thumb_960_w": 960,
-                "thumb_960_h": 540,
-                "thumb_1024": "https://files.slack.com/files-tmb/THKEQG3CG-F04E2SB1UP3-1eaafb4bf0/____________________________2022-12-05_16.48.34_1024.png",
-                "thumb_1024_w": 1024,
-                "thumb_1024_h": 576,
-                "image_exif_rotation": 1,
-                "original_w": 1176,
-                "original_h": 662,
-                "thumb_tiny": "AwAbADCnuPtRvOMcULwGbGcdM0gkYn5vmHcUAKCx6DP0FL8/939KQDDEZ6UuPc0AIWPQ0m40pA9Tmm0AKDjIIyD1pRtXpk/UU2lFMBVPPJxS5H94flTcUuKQAcHq/wClIcdjmg0lAH//2Q==",
-                "permalink": "https://kyutech-proken.slack.com/files/UHNBTKANR/F04E2SB1UP3/____________________________2022-12-05_16.48.34.png",
-                "permalink_public": "https://slack-files.com/THKEQG3CG-F04E2SB1UP3-5fa1c23ec2",
-                "is_starred": false,
-                "has_rich_preview": false,
-                "file_access": "visible"
+                "file_url": "https://files.slack.com/files-pri/THKEQG3CG-F04E2SB1UP3/____________________________2022-12-05_16.48.34.png"
             }
         ],
-        "upload": false,
-        "user": "UHNBTKANR",
-        "display_as_bot": false,
-        "ts": "1670226746.424549",
-        "blocks": [
+        "replies": [
             {
-                "type": "rich_text",
-                "block_id": "1sD",
-                "elements": [
+                "user": "UJKA1H51S",
+                "ts": "1670226817.201279",
+                "text": "デフォルトをChromeにする",
+                "files": []
+            },
+            {
+                "user": "UHNBU3B2R",
+                "ts": "1670226821.370899",
+                "text": "スタバ行って、ガチ開発",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1670226890.809279",
+                "text": "&gt; デフォルトをChromeに\nなるほどな、承知した。",
+                "files": []
+            },
+            {
+                "user": "U017A41CYH1",
+                "ts": "1670226905.638529",
+                "text": "¥を\\に！",
+                "files": [
                     {
-                        "type": "rich_text_section",
-                        "elements": [
-                            {
-                                "type": "text",
-                                "text": "Mac童貞ワイ、バ先から型落ちMacもらったんやが、何かしといた方がええことある？"
-                            }
-                        ]
+                        "name": "スクリーンショット 2022-12-05 16.54.50.png",
+                        "file_url": "https://files.slack.com/files-pri/THKEQG3CG-F04DHKV6D62/____________________________2022-12-05_16.54.50.png"
                     }
                 ]
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1670226920.613469",
+                "text": "&gt; スタバ行って、ガチ開発\nギロッポンのワーキングスペースなうやで",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1670226985.884969",
+                "text": "&gt; ¥を\\に！\nほええ、そんなのあるんか¥¥",
+                "files": []
+            },
+            {
+                "user": "UJKA1H51S",
+                "ts": "1670227013.697659",
+                "text": "capslockをctrlに変更",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1670227062.071249",
+                "text": "&gt; capslockをctrlに変更\nさっきから押しまくってキレてたところや、サンクス",
+                "files": []
+            },
+            {
+                "user": "UJKA1H51S",
+                "ts": "1670227093.972439",
+                "text": "Mac売ってプロ研に寄付",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1670227138.562189",
+                "text": "＞＞9 草",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1670227238.751339",
+                "text": "ターミナルとかデフォルトのを皆使うんかね",
+                "files": []
+            },
+            {
+                "user": "UHNBU3B2R",
+                "ts": "1670227277.641529",
+                "text": "ターミネーターあった気がするよ",
+                "files": []
+            },
+            {
+                "user": "UJKA1H51S",
+                "ts": "1670227389.819599",
+                "text": "iterm2使ってます",
+                "files": []
+            },
+            {
+                "user": "UHNBU3B2R",
+                "ts": "1670227448.554749",
+                "text": "あ、俺もiterm2使ってた",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1670227508.814759",
+                "text": "iterm2、入れてみるわ！",
+                "files": []
+            },
+            {
+                "user": "U017ZNXQ080",
+                "ts": "1670229692.682749",
+                "text": "トラックパッドの設定を自分好みにする",
+                "files": []
+            },
+            {
+                "user": "UHNBTKANR",
+                "ts": "1670230359.684399",
+                "text": "3本指で横スライドすれば画面切り替わるってのを発見しました:joy:",
+                "files": []
+            },
+            {
+                "user": "U017ZNXQ080",
+                "ts": "1670231984.308249",
+                "text": "色々便利なやつが追加オプションであるから試してごらん！",
+                "files": []
+            },
+            {
+                "user": "U017KE408EQ",
+                "ts": "1670478751.803369",
+                "text": "今の時代ターミナルはitermではなくwarpですよ:sunglasses:\nたむしゅんと使って感動してました\n<https://zenn.dev/toono_f/articles/03cc961bfd64c1>",
+                "files": []
+            },
+            {
+                "user": "U017KE408EQ",
+                "ts": "1670479716.112839",
+                "text": "これもおすすめしときます\nランチャーは慣れるとつよつよになれます。\n<https://zenn.dev/toono_f/articles/45d2a49650ebf9>",
+                "files": []
             }
-        ],
-        "client_msg_id": "4e73baa0-9123-425e-9b16-1f947a1ebc26",
-        "thread_ts": "1670226746.424549",
-        "reply_count": 20,
-        "reply_users_count": 6,
-        "latest_reply": "1670479716.112839",
-        "reply_users": [
-            "UJKA1H51S",
-            "UHNBU3B2R",
-            "UHNBTKANR",
-            "U017A41CYH1",
-            "U017ZNXQ080",
-            "U017KE408EQ"
-        ],
-        "is_locked": false,
-        "subscribed": false
+        ]
     },
     {
-        "client_msg_id": "937a7ad0-5015-47b3-a8a1-c4c6fff0af50",
-        "type": "message",
-        "text": "フローチャート書けるおすすめのサイト教えてください",
         "user": "U03FHSPG3BK",
         "ts": "1670979340.818239",
-        "blocks": [
+        "text": "フローチャート書けるおすすめのサイト教えてください",
+        "files": [],
+        "replies": [
             {
-                "type": "rich_text",
-                "block_id": "wjK",
-                "elements": [
-                    {
-                        "type": "rich_text_section",
-                        "elements": [
-                            {
-                                "type": "text",
-                                "text": "フローチャート書けるおすすめのサイト教えてください"
-                            }
-                        ]
-                    }
-                ]
+                "user": "U017A41CYH1",
+                "ts": "1670984069.128709",
+                "text": "<https://app.diagrams.net/>\nGoogleDriveに保存できておすすめです！",
+                "files": []
             }
-        ],
-        "team": "THKEQG3CG",
-        "thread_ts": "1670979340.818239",
-        "reply_count": 1,
-        "reply_users_count": 1,
-        "latest_reply": "1670984069.128709",
-        "reply_users": [
-            "U017A41CYH1"
-        ],
-        "is_locked": false,
-        "subscribed": false
+        ]
     },
     {
-        "type": "message",
-        "subtype": "channel_join",
-        "ts": "1671085121.055439",
         "user": "U04F1FEG2TE",
+        "ts": "1671085121.055439",
         "text": "<@U04F1FEG2TE>さんがチャンネルに参加しました",
-        "inviter": "U03FHSPG3BK"
+        "files": [],
+        "replies": []
     }
 ]

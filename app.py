@@ -56,14 +56,33 @@ def get_replies(id, ts):
     replies = replies['messages']
     formatted_replies = []
     for i in replies:
-        formatted_replies.append({
-            "user": i["user"],
-            "ts": i["ts"],
-            "text": i["text"],
-        })
+        if "files" not in i:
+            formatted_replies.append({
+                "user": i["user"],
+                "ts": i["ts"],
+                "text": i["text"],
+                "files": []
+            })
+        else:
+            files = []
+            for j in i["files"]:
+                files.append({
+                    "name": j["name"],
+                    "file_url": j["url_private"]
+                })
+            formatted_replies.append({
+                "user": i["user"],
+                "ts": i["ts"],
+                "text": i["text"],
+                "files": files
+            })
     # formatted_replies配列の０番目はリプライされたメッセージなので必要ない。配列の０番目を消す
     formatted_replies.pop(0)
+    with open('replies.json', 'w') as f:
+        json.dump(formatted_replies, f, ensure_ascii=False, indent=4)
     return formatted_replies
+
+# get_replies("CRRLNR1AM", "1670943931.945099")
 
 
 # チャンネルからメッセージを取得
@@ -183,6 +202,7 @@ while True:
     oldest = int(int(now_ts) - calendar.monthrange(now.year,
                  now.month - 1)[1] * 86400 + 32400)
 
+    # 標準では1
     target_day = 22
 
     if now.day == target_day:
@@ -190,9 +210,11 @@ while True:
 
         for id in channel_id_list:
             get_messages(id, oldest, today)
+            print("ok")
 
         while now.day == target_day:
             print("finish")
+            time.sleep(10)
     time.sleep(10)
 
 
