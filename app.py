@@ -108,11 +108,11 @@ def get_messages(id, oldest):
             })
     return formatted_messages
 
-
-def send_to_database(id, oldest, today):
+#firestoreに送信
+def send_to_database(id, oldest, last_month):
     messages = get_messages(id, oldest)
     doc_ref = db.collection("messages").document(id)
-    doc_ref.set({today: firestore.ArrayUnion(messages)})
+    doc_ref.set({last_month: firestore.ArrayUnion(messages)})
 
 
 
@@ -130,26 +130,29 @@ def send_to_database(id, oldest, today):
 
 while True:
     now = datetime.datetime.now()
-    # 今月一日０時０分のdatetime
+    # 今月1日0時0分のdatetime
     now_dt = datetime.datetime.strptime(
         f'{now.year}-{now.month}-01 00:00:00', "%Y-%m-%d %H:%M:%S")
-    # 今月一日０時０分のunixts
+    # 今月1日0時0分のunixts
     now_ts = now_dt.timestamp()
-    # 先月一日のunixts
-    # 今月一日０時０分のunixtsから先月の秒数(3600*24*日数)を引いている
-    # 32400足しているのは日本時間に変換するため
+    #時差
+    time_difference = 32400
+    # 先月1日のunixts
+    # 今月1日0時0分のunixtsから先月の秒数(3600*24*日数)を引いている
+    # time_differenceを足しているのは日本時間に変換するため
     oldest = int(int(now_ts) - calendar.monthrange(now.year,
-                 now.month - 1)[1] * 86400 + 32400)
-
-    # 標準では1
-    target_day = 22
+                 now.month - 1)[1] * 86400 + time_difference)
+    #メッセージを取得する日
+    target_day = 1
 
     if now.day == target_day:
-        today = str(now.year) + str(now.month)
+        if now.month == 1:
+            last_month = str(now.year - 1) + str(now.month - 1)
+        else:
+            last_month = str(now.year) + str(now.month - 1)
 
         for id in channel_id_list:
-            # get_messages(id, oldest, today)
-            send_to_database(id, oldest, today)
+            send_to_database(id, oldest, last_month)
             print("ok")
 
         while now.day == target_day:
