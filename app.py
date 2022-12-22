@@ -106,6 +106,7 @@ def get_messages(id, oldest):
             })
     return formatted_messages
 
+
 #firestoreに送信
 def send_to_database(id, oldest, last_month):
     messages = get_messages(id, oldest)
@@ -141,8 +142,7 @@ while True:
     oldest = int(int(now_ts) - calendar.monthrange(now.year,
                  now.month - 1)[1] * 86400 + time_difference)
     #メッセージを取得する日
-    target_day = 1
-
+    target_day = 22
     if now.day == target_day:
         if now.month == 1:
             last_month = str(now.year - 1) + str(now.month - 1)
@@ -152,8 +152,7 @@ while True:
         for id in channel_id_list:
             send_to_database(id, oldest, last_month)
             print("ok")
-
-        while now.day == target_day:
-            print("finish")
+        print("finish")
+    while now.day == target_day:   
             time.sleep(10)
     time.sleep(10)
