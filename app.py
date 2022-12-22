@@ -28,26 +28,7 @@ headers = {"Authorization": "Bearer " + token}
 #     for i in channels:
 #         channel_id_list.append(i["id"])
 #     return channel_id_list  # 配列を返す
-# channel_id_list = ["CRRLNR1AM", "CHKEQGFUG", "CRSDL3YNP", "C03CR11BLNS"]
-channel_id_list = ["CRSDL3YNP"]
-
-
-# # チャンネルからメッセージを取得
-# def get_messages(id, today, oldest):
-#     url = 'https://slack.com/api/conversations.history'
-#     data = {
-#         "channel": id,
-#         "include_all_metadata": False,
-#         "oldest": oldest
-#     }
-#     r = requests.get(url, headers=headers, params=data)
-#     history = r.json()
-#     messages = history["messages"]
-#     messages.reverse()
-#     messages_json = json.dumps(messages, ensure_ascii=False, indent=4)
-#     with open(f'{today}_{id}.json', 'w') as f:
-#         json.dump(messages, f, ensure_ascii=False, indent=4)
-#     return messages_json
+channel_id_list = ["CRRLNR1AM", "CHKEQGFUG", "CRSDL3YNP", "C03CR11BLNS"]
 
 
 # メッセージのリプライを取得
@@ -87,8 +68,6 @@ def get_replies(id, ts):
         json.dump(formatted_replies, f, ensure_ascii=False, indent=4)
     return formatted_replies
 
-# get_replies("CRRLNR1AM", "1670943931.945099")
-
 
 # チャンネルからメッセージを取得
 def get_messages(id, oldest):
@@ -127,20 +106,13 @@ def get_messages(id, oldest):
                 "files": files,
                 "replies": replies
             })
-
-    messages_json = json.dumps(
-        formatted_messages, ensure_ascii=False, indent=4)
-    # with open(f'{today}_{id}.json', 'w') as f:
-    #     json.dump(formatted_messages, f, ensure_ascii=False, indent=4)
     return formatted_messages
-
-# get_messages("CRRLNR1AM")
 
 
 def send_to_database(id, oldest, today):
     messages = get_messages(id, oldest)
-    doc_ref = db.collection("messages").document(today)
-    doc_ref.set({"message": firestore.ArrayUnion(messages)})
+    doc_ref = db.collection("messages").document(id)
+    doc_ref.set({today: firestore.ArrayUnion(messages)})
 
 
 
@@ -184,7 +156,3 @@ while True:
             print("finish")
             time.sleep(10)
     time.sleep(10)
-
-
-# チャンネルidのリストは手作業で作る
-# get_replies()
