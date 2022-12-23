@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, jsonify, request
 import json
 import requests
 import datetime
@@ -15,7 +15,7 @@ db = firestore.client()
 
 app = Flask(__name__)
 
-token = "xoxb-597500547424-4511524546932-o3RDC4fjQtLnQOvDn1RVhTz8"
+token = "xoxb-597500547424-4511524546932-1IceRYRCELawwzsu9HC95Emx"
 headers = {"Authorization": "Bearer " + token}
 
 
@@ -115,17 +115,9 @@ def get_messages(id, oldest):
 def send_to_database(id, oldest, last_month):
     messages = get_messages(id, oldest)
     doc_ref = db.collection("messages").document(id)
+    #firestore.ArrayUnion　<=おまじない
     doc_ref.set({last_month: firestore.ArrayUnion(messages)})
 
-
-# @app.route('/', methods=["GET"])
-# def return_messages():
-#     return get_replies()
-
-
-# if __name__ == '__main__':
-#     app.debug = True
-#     app.run(debug=True, host='0.0.0.0', port=8090)
 
 # https://infinite-earth-07156.herokuapp.com
 
