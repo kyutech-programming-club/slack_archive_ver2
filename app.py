@@ -15,7 +15,7 @@ db = firestore.client()
 
 app = Flask(__name__)
 
-token = "xoxb-597500547424-4511524546932-o3RDC4fjQtLnQOvDn1RVhTz8"
+token = "xoxb-597500547424-4511524546932-1IceRYRCELawwzsu9HC95Emx"
 headers = {"Authorization": "Bearer " + token}
 
 
