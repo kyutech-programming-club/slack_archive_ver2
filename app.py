@@ -118,15 +118,6 @@ def send_to_database(id, oldest, last_month):
     #firestore.ArrayUnion　<=おまじない
     doc_ref.set({last_month: firestore.ArrayUnion(messages)})
 
-@app.route('/add', methods=["POST"])
-def return_messages():
-    payload = {'text': 'DigitalOcean Slack slash command is successful!'}
-    return jsonify(payload)
-
-
-if __name__ == '__main__':
-    app.debug = True
-    app.run(debug=True, host='0.0.0.0', port=8090)
 
 # https://infinite-earth-07156.herokuapp.com
 
