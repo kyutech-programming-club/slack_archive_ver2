@@ -115,17 +115,18 @@ def get_messages(id, oldest):
 def send_to_database(id, oldest, last_month):
     messages = get_messages(id, oldest)
     doc_ref = db.collection("messages").document(id)
+    #firestore.ArrayUnion　<=おまじない
     doc_ref.set({last_month: firestore.ArrayUnion(messages)})
 
+@app.route('/add', methods=["POST"])
+def return_messages():
+    data = json.loads(request.get_data())
+    return data
 
-# @app.route('/', methods=["GET"])
-# def return_messages():
-#     return get_replies()
 
-
-# if __name__ == '__main__':
-#     app.debug = True
-#     app.run(debug=True, host='0.0.0.0', port=8090)
+if __name__ == '__main__':
+    app.debug = True
+    app.run(debug=True, host='0.0.0.0', port=8090)
 
 # https://infinite-earth-07156.herokuapp.com
 
@@ -144,7 +145,7 @@ while True:
     oldest = int(int(now_ts) - calendar.monthrange(now.year,
                  now.month - 1)[1] * 86400 + time_difference)
     # メッセージを取得する日
-    target_day = 1
+    target_day = 22
     if now.day == target_day:
         if now.month == 1:
             last_month = str(now.year - 1) + str(12)
