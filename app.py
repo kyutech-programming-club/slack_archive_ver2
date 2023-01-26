@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 import schedule
 import time
 import requests
@@ -12,11 +14,13 @@ cred = credentials.Certificate(
     "./slackbot-database-68d26-firebase-adminsdk-c6efu-bd77b4b931.json"
 )
 firebase_admin.initialize_app(cred)
-
 db = firestore.client()
-slack_app_token = "xoxb-597500547424-4511524546932-1IceRYRCELawwzsu9HC95Emx"
+
+load_dotenv()
+slack_app_token = os.environ["SLACK_APP_TOKEN"]
+apps_member_id = os.environ["APPS_MEMBER_ID"]
+
 headers = {"Authorization": "Bearer " + slack_app_token}
-apps_member_id = "U04F1FEG2TE"
 now = datetime.datetime.now()
 time_difference = 32400
 
@@ -156,7 +160,7 @@ def send_to_database(id, oldest, latest, name):
 
 # 色々な関数を呼び出す
 def loop():
-    if now.day == 1:
+    if now.day == 26:
         oldest, latest = time_range()
         name = data_name()
 
@@ -177,11 +181,12 @@ def loop():
 
     print("finish")
 
+loop()
 
 # 実行スケジュールを設定
 schedule.every().day.at("00:00").do(loop)
 
 # 常に実行
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)

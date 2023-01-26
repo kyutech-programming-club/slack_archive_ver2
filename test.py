@@ -1,4 +1,6 @@
 from flask import Flask, jsonify, request
+import os
+from dotenv import load_dotenv
 import json
 import requests
 import datetime
@@ -12,6 +14,8 @@ cred = credentials.Certificate(
     "./slackbot-database-68d26-firebase-adminsdk-c6efu-bd77b4b931.json"
 )
 firebase_admin.initialize_app(cred)
+
+load_dotenv()
 db = firestore.client()
 token = "xoxb-597500547424-4511524546932-1IceRYRCELawwzsu9HC95Emx"
 headers = {"Authorization": "Bearer " + token}
@@ -52,13 +56,11 @@ def get_replies(id, ts) -> object:
     }
     r = requests.get(url, headers=headers, params=data)
     replies = r.json()["messages"]
-    with open("./test_{}_{}.json".format(id,ts), "w") as f:
+    with open("./test_{}_{}.json".format(id, ts), "w") as f:
         json.dump(replies, f, indent=4)
 
 
-get_replies("CJ978TDJP", "1670198406.354959")
-get_replies("CHP0PBR63", "1672196501.138889")
-get_replies("CHKEQGFUG", "1669961990.426549")
+print(os.environ["SLACK_APP_TOKEN"])
 # list = []
 # for i in get_channel_id():
 #     for j in get_users(i):
