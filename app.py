@@ -58,53 +58,25 @@ def get_replies(id, ts) -> list:
     }
     r = requests.get(url, headers=headers, params=data)
 
+    formatted_replies = []
     if "messages" in r.json():
         replies = r.json()["messages"]
-
-        formatted_replies = []
         for i in replies:
-            if "user" not in i:
-                if "files" not in i:
-                    formatted_replies.append(
-                        {"user": "", "ts": i["ts"], "text": i["text"], "files": []}
-                    )
-                else:
-                    files = []
-                    for j in i["files"]:
-                        files.append({"name": j["name"], "file_url": j["url_private"]})
-                    formatted_replies.append(
-                        {
-                            "user": "",
-                            "ts": i["ts"],
-                            "text": i["text"],
-                            "files": files,
-                        }
-                    )
-            else:
-                if "files" not in i:
-                    formatted_replies.append(
-                        {
-                            "user": i["user"],
-                            "ts": i["ts"],
-                            "text": i["text"],
-                            "files": [],
-                        }
-                    )
-                else:
-                    files = []
-                    for j in i["files"]:
-                        files.append({"name": j["name"], "file_url": j["url_private"]})
-                    formatted_replies.append(
-                        {
-                            "user": i["user"],
-                            "ts": i["ts"],
-                            "text": i["text"],
-                            "files": files,
-                        }
-                    )
+            # リプライに添付されたファイル
+            files = []
+            if "files" in i:
+                for j in i["files"]:
+                    files.append({"name": j["name"], "file_url": j["url_private"]})
+
+            formatted_replies.append(
+                {
+                    "user": i["user"] if "user" in i else "",
+                    "ts": i["ts"],
+                    "text": i["text"],
+                    "files": files,
+                }
+            )
         formatted_replies.pop(0)
-    else:
-        formatted_replies = []
     return formatted_replies
 
 
@@ -126,55 +98,23 @@ def get_messages(id, oldest, latest) -> list:
     formatted_messages = []
 
     for i in messages:
+        # メッセージに付いた返信を取得
         replies = get_replies(id, i["ts"])
-        if "user" not in i:
-            if "files" not in i:
-                formatted_messages.append(
-                    {
-                        "user": "",
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": [],
-                        "replies": replies,
-                    }
-                )
-            else:
-                files = []
-                for j in i["files"]:
-                    files.append({"name": j["name"], "file_url": j["url_private"]})
-                formatted_messages.append(
-                    {
-                        "user": "",
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": files,
-                        "replies": replies,
-                    }
-                )
-        else:
-            if "files" not in i:
-                formatted_messages.append(
-                    {
-                        "user": i["user"],
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": [],
-                        "replies": replies,
-                    }
-                )
-            else:
-                files = []
-                for j in i["files"]:
-                    files.append({"name": j["name"], "file_url": j["url_private"]})
-                formatted_messages.append(
-                    {
-                        "user": i["user"],
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": files,
-                        "replies": replies,
-                    }
-                )
+
+        # メッセージに添付されたファイルを取得
+        files = []
+        if "files" in i:
+            for j in i["files"]:
+                files.append({"name": j["name"], "file_url": j["url_private"]})
+        formatted_messages.append(
+            {
+                "user": i["user"] if "user" in i else "",
+                "ts": i["ts"],
+                "text": i["text"],
+                "files": files,
+                "replies": replies,
+            }
+        )
     return formatted_messages
 
 
@@ -185,10 +125,12 @@ def time_range() -> int:
     )
     now_ts = now_dt.timestamp()
 
-    if now.month == 1:
-        month_range = calendar.monthrange(now.year - 1, 12)[1]
-    else:
-        month_range = calendar.monthrange(now.year, now.month - 1)[1]
+    month_range = (
+        calendar.monthrange(now.year - 1, 12)[1]
+        if now.month == 1
+        else calendar.monthrange(now.year, now.month - 1)[1]
+    )
+
     oldest = int(now_ts - month_range * 86400 + time_difference)
     latest = int(now_ts + time_difference)
     return oldest, latest
@@ -196,10 +138,11 @@ def time_range() -> int:
 
 # firestoreに送るときの名前を設定
 def data_name() -> str:
-    if now.month == 1:
-        name = str(now.year - 1) + str(12)
-    else:
-        name = str(now.year) + str(now.month - 1)
+    name = (
+        str(now.year - 1) + str(12)
+        if now.month == 1
+        else str(now.year) + str(now.month - 1)
+    )
     return name
 
 
@@ -213,7 +156,7 @@ def send_to_database(id, oldest, latest, name):
 
 # 色々な関数を呼び出す
 def loop():
-    if now.day == 26:
+    if now.day == 1:
         oldest, latest = time_range()
         name = data_name()
 
@@ -235,11 +178,10 @@ def loop():
     print("finish")
 
 
-loop()
 # 実行スケジュールを設定
 schedule.every().day.at("00:00").do(loop)
 
 # 常に実行
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
