@@ -58,35 +58,23 @@ def get_replies(id, ts) -> list:
     }
     r = requests.get(url, headers=headers, params=data)
 
+    formatted_replies = []
     if "messages" in r.json():
         replies = r.json()["messages"]
-
-        formatted_replies = []
         for i in replies:
-            if "files" not in i:
-                formatted_replies.append(
-                    {
-                        "user": i["user"] if "user" in i else "",
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": [],
-                    }
-                )
-            else:
-                files = []
+            files = []
+            if "files" in i:
                 for j in i["files"]:
                     files.append({"name": j["name"], "file_url": j["url_private"]})
-                formatted_replies.append(
-                    {
-                        "user": i["user"] if "user" in i else "",
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": files,
-                    }
-                )
+            formatted_replies.append(
+                {
+                    "user": i["user"] if "user" in i else "",
+                    "ts": i["ts"],
+                    "text": i["text"],
+                    "files": files,
+                }
+            )
         formatted_replies.pop(0)
-    else:
-        formatted_replies = []
     return formatted_replies
 
 
@@ -109,54 +97,19 @@ def get_messages(id, oldest, latest) -> list:
 
     for i in messages:
         replies = get_replies(id, i["ts"])
-        if "user" not in i:
-            if "files" not in i:
-                formatted_messages.append(
-                    {
-                        "user": "",
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": [],
-                        "replies": replies,
-                    }
-                )
-            else:
-                files = []
-                for j in i["files"]:
-                    files.append({"name": j["name"], "file_url": j["url_private"]})
-                formatted_messages.append(
-                    {
-                        "user": "",
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": files,
-                        "replies": replies,
-                    }
-                )
-        else:
-            if "files" not in i:
-                formatted_messages.append(
-                    {
-                        "user": i["user"],
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": [],
-                        "replies": replies,
-                    }
-                )
-            else:
-                files = []
-                for j in i["files"]:
-                    files.append({"name": j["name"], "file_url": j["url_private"]})
-                formatted_messages.append(
-                    {
-                        "user": i["user"],
-                        "ts": i["ts"],
-                        "text": i["text"],
-                        "files": files,
-                        "replies": replies,
-                    }
-                )
+        files = []
+        if "files" in i:
+            for j in i["files"]:
+                files.append({"name": j["name"], "file_url": j["url_private"]})
+        formatted_messages.append(
+            {
+                "user": i["user"] if i in "user" else "",
+                "ts": i["ts"],
+                "text": i["text"],
+                "files": files,
+                "replies": replies,
+            }
+        )
     return formatted_messages
 
 
