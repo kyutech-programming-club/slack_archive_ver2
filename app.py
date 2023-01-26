@@ -14,10 +14,11 @@ cred = credentials.Certificate(
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
-token = "xoxb-597500547424-4511524546932-1IceRYRCELawwzsu9HC95Emx"
-headers = {"Authorization": "Bearer " + token}
+slack_app_token = "xoxb-597500547424-4511524546932-1IceRYRCELawwzsu9HC95Emx"
+headers = {"Authorization": "Bearer " + slack_app_token}
 apps_member_id = "U04F1FEG2TE"
 now = datetime.datetime.now()
+time_difference = 32400
 
 
 # ワークスペース内の全チャンネルのidを取得
@@ -48,34 +49,68 @@ def get_users(channel_id):
 
 
 # メッセージのリプライを取得
-def get_replies(id, ts) -> object:
+def get_replies(id, ts) -> list:
+    print(ts)
     url = "https://slack.com/api/conversations.replies"
     data = {
         "channel": id,
         "ts": ts,
     }
     r = requests.get(url, headers=headers, params=data)
-    replies = r.json()
-    replies = replies["messages"]
-    formatted_replies = []
-    for i in replies:
-        if "files" not in i:
-            formatted_replies.append(
-                {"user": i["user"], "ts": i["ts"], "text": i["text"], "files": []}
-            )
-        else:
-            files = []
-            for j in i["files"]:
-                files.append({"name": j["name"], "file_url": j["url_private"]})
-            formatted_replies.append(
-                {"user": i["user"], "ts": i["ts"], "text": i["text"], "files": files}
-            )
-    formatted_replies.pop(0)
+
+    if "messages" in r.json():
+        replies = r.json()["messages"]
+
+        formatted_replies = []
+        for i in replies:
+            if "user" not in i:
+                if "files" not in i:
+                    formatted_replies.append(
+                        {"user": "", "ts": i["ts"], "text": i["text"], "files": []}
+                    )
+                else:
+                    files = []
+                    for j in i["files"]:
+                        files.append({"name": j["name"], "file_url": j["url_private"]})
+                    formatted_replies.append(
+                        {
+                            "user": "",
+                            "ts": i["ts"],
+                            "text": i["text"],
+                            "files": files,
+                        }
+                    )
+            else:
+                if "files" not in i:
+                    formatted_replies.append(
+                        {
+                            "user": i["user"],
+                            "ts": i["ts"],
+                            "text": i["text"],
+                            "files": [],
+                        }
+                    )
+                else:
+                    files = []
+                    for j in i["files"]:
+                        files.append({"name": j["name"], "file_url": j["url_private"]})
+                    formatted_replies.append(
+                        {
+                            "user": i["user"],
+                            "ts": i["ts"],
+                            "text": i["text"],
+                            "files": files,
+                        }
+                    )
+        formatted_replies.pop(0)
+    else:
+        formatted_replies = []
     return formatted_replies
 
 
 # チャンネルからメッセージを取得
-def get_messages(id, oldest, latest) -> object:
+def get_messages(id, oldest, latest) -> list:
+    print(id)
     url = "https://slack.com/api/conversations.history"
     data = {
         "channel": id,
@@ -84,44 +119,63 @@ def get_messages(id, oldest, latest) -> object:
         "latest": latest,
     }
     r = requests.get(url, headers=headers, params=data)
+
     history = r.json()
     messages = history["messages"]
     messages.reverse()
     formatted_messages = []
+
     for i in messages:
         replies = get_replies(id, i["ts"])
-        if "files" not in i:
-            formatted_messages.append(
-                {
-                    "user": i["user"],
-                    "ts": i["ts"],
-                    "text": i["text"],
-                    "files": [],
-                    "replies": replies,
-                }
-            )
+        if "user" not in i:
+            if "files" not in i:
+                formatted_messages.append(
+                    {
+                        "user": "",
+                        "ts": i["ts"],
+                        "text": i["text"],
+                        "files": [],
+                        "replies": replies,
+                    }
+                )
+            else:
+                files = []
+                for j in i["files"]:
+                    files.append({"name": j["name"], "file_url": j["url_private"]})
+                formatted_messages.append(
+                    {
+                        "user": "",
+                        "ts": i["ts"],
+                        "text": i["text"],
+                        "files": files,
+                        "replies": replies,
+                    }
+                )
         else:
-            files = []
-            for j in i["files"]:
-                files.append({"name": j["name"], "file_url": j["url_private"]})
-            formatted_messages.append(
-                {
-                    "user": i["user"],
-                    "ts": i["ts"],
-                    "text": i["text"],
-                    "files": files,
-                    "replies": replies,
-                }
-            )
+            if "files" not in i:
+                formatted_messages.append(
+                    {
+                        "user": i["user"],
+                        "ts": i["ts"],
+                        "text": i["text"],
+                        "files": [],
+                        "replies": replies,
+                    }
+                )
+            else:
+                files = []
+                for j in i["files"]:
+                    files.append({"name": j["name"], "file_url": j["url_private"]})
+                formatted_messages.append(
+                    {
+                        "user": i["user"],
+                        "ts": i["ts"],
+                        "text": i["text"],
+                        "files": files,
+                        "replies": replies,
+                    }
+                )
     return formatted_messages
-
-
-# firestoreに送信
-def send_to_database(id, oldest, latest, name):
-    messages = get_messages(id, oldest, latest)
-    doc_ref = db.collection("messages").document(id)
-    # firestore.ArrayUnion　<=おまじない
-    doc_ref.set({name: firestore.ArrayUnion(messages)})
 
 
 # 取得するメッセージの範囲を設定
@@ -130,7 +184,7 @@ def time_range() -> int:
         f"{now.year}-{now.month}-01 00:00:00", "%Y-%m-%d %H:%M:%S"
     )
     now_ts = now_dt.timestamp()
-    time_difference = 32400
+
     if now.month == 1:
         month_range = calendar.monthrange(now.year - 1, 12)[1]
     else:
@@ -149,9 +203,17 @@ def data_name() -> str:
     return name
 
 
+# firestoreに送信
+def send_to_database(id, oldest, latest, name):
+    messages = get_messages(id, oldest, latest)
+    doc_ref = db.collection("messages").document(id)
+    # firestore.ArrayUnion　<=おまじない
+    doc_ref.set({name: firestore.ArrayUnion(messages)})
+
+
 # 色々な関数を呼び出す
 def loop():
-    if now.day == 1:
+    if now.day == 26:
         oldest, latest = time_range()
         name = data_name()
 
@@ -161,17 +223,23 @@ def loop():
             for j in get_users(i):
                 if apps_member_id == j:
                     channel_id_list.append(i)
+                    print(i)
+        print("got all the IDs")
+        print("")
 
+        # id毎にfirestoreに送信
         for id in channel_id_list:
             send_to_database(id, oldest, latest, name)
-            print("ok")
+            print("")
+
     print("finish")
 
 
+loop()
 # 実行スケジュールを設定
 schedule.every().day.at("00:00").do(loop)
 
 # 常に実行
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)

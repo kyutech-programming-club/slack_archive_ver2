@@ -44,11 +44,26 @@ def get_users(channel_id):
     return members  # チャンネル内の全メンバーの配列を返す
 
 
-list = []
-for i in get_channel_id():
-    for j in get_users(i):
-        if apps_member_id == j:
-            list.append(i)
+def get_replies(id, ts) -> object:
+    url = "https://slack.com/api/conversations.replies"
+    data = {
+        "channel": id,
+        "ts": ts,
+    }
+    r = requests.get(url, headers=headers, params=data)
+    replies = r.json()["messages"]
+    with open("./test_{}_{}.json".format(id,ts), "w") as f:
+        json.dump(replies, f, indent=4)
+
+
+get_replies("CJ978TDJP", "1670198406.354959")
+get_replies("CHP0PBR63", "1672196501.138889")
+get_replies("CHKEQGFUG", "1669961990.426549")
+# list = []
+# for i in get_channel_id():
+#     for j in get_users(i):
+#         if apps_member_id == j:
+#             list.append(i)
 
 
 # # 自動で追加できるようにしたい
