@@ -181,12 +181,11 @@ def loop():
 
     print("finish")
 
-loop()
 
 # 実行スケジュールを設定
 schedule.every().day.at("00:00").do(loop)
 
 # 常に実行
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
