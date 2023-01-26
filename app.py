@@ -160,7 +160,7 @@ def send_to_database(id, oldest, latest, name):
 
 # 色々な関数を呼び出す
 def loop():
-    if now.day == 26:
+    if now.day == 1:
         oldest, latest = time_range()
         name = data_name()
 
