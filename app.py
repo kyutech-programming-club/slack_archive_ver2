@@ -63,45 +63,27 @@ def get_replies(id, ts) -> list:
 
         formatted_replies = []
         for i in replies:
-            if "user" not in i:
-                if "files" not in i:
-                    formatted_replies.append(
-                        {"user": "", "ts": i["ts"], "text": i["text"], "files": []}
-                    )
-                else:
-                    files = []
-                    for j in i["files"]:
-                        files.append({"name": j["name"], "file_url": j["url_private"]})
-                    formatted_replies.append(
-                        {
-                            "user": "",
-                            "ts": i["ts"],
-                            "text": i["text"],
-                            "files": files,
-                        }
-                    )
+            if "files" not in i:
+                formatted_replies.append(
+                    {
+                        "user": i["user"] if "user" in i else "",
+                        "ts": i["ts"],
+                        "text": i["text"],
+                        "files": [],
+                    }
+                )
             else:
-                if "files" not in i:
-                    formatted_replies.append(
-                        {
-                            "user": i["user"],
-                            "ts": i["ts"],
-                            "text": i["text"],
-                            "files": [],
-                        }
-                    )
-                else:
-                    files = []
-                    for j in i["files"]:
-                        files.append({"name": j["name"], "file_url": j["url_private"]})
-                    formatted_replies.append(
-                        {
-                            "user": i["user"],
-                            "ts": i["ts"],
-                            "text": i["text"],
-                            "files": files,
-                        }
-                    )
+                files = []
+                for j in i["files"]:
+                    files.append({"name": j["name"], "file_url": j["url_private"]})
+                formatted_replies.append(
+                    {
+                        "user": i["user"] if "user" in i else "",
+                        "ts": i["ts"],
+                        "text": i["text"],
+                        "files": files,
+                    }
+                )
         formatted_replies.pop(0)
     else:
         formatted_replies = []
