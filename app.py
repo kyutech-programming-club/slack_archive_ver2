@@ -52,8 +52,28 @@ def get_users(channel_id):
     return members  # チャンネル内の全メンバーの配列を返す
 
 
+# ワークスペース内の全てユーザーの名前とidを取得
+def get_users_info():
+    url = "https://slack.com/api/users.list"
+    r = requests.get(url, headers=headers)
+    user_data = r.json()
+    if "members" in user_data:
+        members = user_data["members"]
+        members_name_and_id = {}
+
+        for i in members:
+            user_id = i["id"] if "id" in i else "no id"
+            user_name = (
+                i["profile"]["real_name_normalized"]
+                if "profile" in i and "real_name_normalized" in i["profile"]
+                else "no user_name",
+            )
+            members_name_and_id.update({f"{user_id}": user_name[0]})
+    return members_name_and_id
+
+
 # メッセージのリプライを取得
-def get_replies(id, ts) -> list:
+def get_replies(id, ts, users_info) -> list:
     print(ts)
     url = "https://slack.com/api/conversations.replies"
     data = {
@@ -72,9 +92,12 @@ def get_replies(id, ts) -> list:
                 for j in i["files"]:
                     files.append({"name": j["name"], "file_url": j["url_private"]})
 
+            user_id = i["user"] if "user" in i else "no_id"
+
             formatted_replies.append(
                 {
-                    "user": i["user"] if "user" in i else "",
+                    "user_id": user_id,
+                    "user_name": users_info[user_id],
                     "ts": i["ts"],
                     "text": i["text"],
                     "files": files,
@@ -99,20 +122,26 @@ def get_messages(id, oldest, latest) -> list:
     history = r.json()
     messages = history["messages"]
     messages.reverse()
+    users_info = get_users_info()
     formatted_messages = []
 
     for i in messages:
         # メッセージに付いた返信を取得
-        replies = get_replies(id, i["ts"])
+        replies = get_replies(id, i["ts"], users_info)
 
         # メッセージに添付されたファイルを取得
         files = []
         if "files" in i:
             for j in i["files"]:
                 files.append({"name": j["name"], "file_url": j["url_private"]})
+
+        # user_idを定義
+        user_id = i["user"] if "user" in i else "no_id"
+
         formatted_messages.append(
             {
-                "user": i["user"] if "user" in i else "",
+                "user_id": user_id,
+                "user_name": users_info[user_id],
                 "ts": i["ts"],
                 "text": i["text"],
                 "files": files,
@@ -160,7 +189,7 @@ def send_to_database(id, oldest, latest, name):
 
 # 色々な関数を呼び出す
 def loop():
-    if now.day == 1:
+    if now.day == 29:
         oldest, latest = time_range()
         name = data_name()
 
@@ -180,12 +209,12 @@ def loop():
             print("")
 
     print("finish")
-
+loop()
 
 # 実行スケジュールを設定
 schedule.every().day.at("00:00").do(loop)
 
-# 常に実行
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+# # 常に実行
+# while True:
+#     schedule.run_pending()
+#     time.sleep(1)
