@@ -1,3 +1,4 @@
+import json
 import os
 from dotenv import load_dotenv
 import schedule
@@ -52,23 +53,34 @@ def get_users(channel_id):
     return members  # チャンネル内の全メンバーの配列を返す
 
 
+def get_user_name(id):
+    url = "https://slack.com/api/users.info"
+    data = {"user": id}
+    r = requests.get(url, headers=headers, params=data)
+    user_data = r.json()
+    user_name = (
+        user_data["user"]["profile"]["display_name"] if "user" in user_data else ""
+    )
+    return user_name
+
+
 # ワークスペース内の全てユーザーの名前とidを取得
-def get_users_info():
+def get_user_list():
     url = "https://slack.com/api/users.list"
     r = requests.get(url, headers=headers)
     user_data = r.json()
+    members_name_and_id = {}
     if "members" in user_data:
         members = user_data["members"]
-        members_name_and_id = {}
-
         for i in members:
-            user_id = i["id"] if "id" in i else "no id"
-            user_name = (
-                i["profile"]["real_name_normalized"]
-                if "profile" in i and "real_name_normalized" in i["profile"]
-                else "no user_name",
-            )
-            members_name_and_id.update({f"{user_id}": user_name[0]})
+            if not i["deleted"] and not i["is_bot"] and i["id"] != "USLACKBOT":
+                user_name = get_user_name(user_id)
+                user_id = i["id"]
+                user_name = user_name if user_name != "" else i["real_name"]
+            else:
+                user_id = "no_id"
+                user_name = "no_name"
+            members_name_and_id.update({f"{user_id}": user_name})
     return members_name_and_id
 
 
@@ -83,7 +95,8 @@ def get_replies(id, ts, users_info) -> list:
     r = requests.get(url, headers=headers, params=data)
 
     formatted_replies = []
-    if "messages" in r.json():
+    if r.json()["has_more"] == True:
+        # if "messages" in r.json():
         replies = r.json()["messages"]
         for i in replies:
             # リプライに添付されたファイル
@@ -92,23 +105,26 @@ def get_replies(id, ts, users_info) -> list:
                 for j in i["files"]:
                     files.append({"name": j["name"], "file_url": j["url_private"]})
 
+            # user_id, user_nameを定義
             user_id = i["user"] if "user" in i else "no_id"
+            user_name = users_info[user_id] if user_id in users_info else "no_name"
 
             formatted_replies.append(
                 {
                     "user_id": user_id,
-                    "user_name": users_info[user_id],
+                    "user_name": user_name,
                     "ts": i["ts"],
                     "text": i["text"],
                     "files": files,
                 }
             )
         formatted_replies.pop(0)
+    print("ok")
     return formatted_replies
 
 
 # チャンネルからメッセージを取得
-def get_messages(id, oldest, latest) -> list:
+def get_messages(id, oldest, latest, users_list) -> list:
     print(id)
     url = "https://slack.com/api/conversations.history"
     data = {
@@ -122,12 +138,11 @@ def get_messages(id, oldest, latest) -> list:
     history = r.json()
     messages = history["messages"]
     messages.reverse()
-    users_info = get_users_info()
     formatted_messages = []
 
     for i in messages:
         # メッセージに付いた返信を取得
-        replies = get_replies(id, i["ts"], users_info)
+        replies = get_replies(id, i["ts"], users_list)
 
         # メッセージに添付されたファイルを取得
         files = []
@@ -135,13 +150,14 @@ def get_messages(id, oldest, latest) -> list:
             for j in i["files"]:
                 files.append({"name": j["name"], "file_url": j["url_private"]})
 
-        # user_idを定義
+        # user_id, user_nameを定義
         user_id = i["user"] if "user" in i else "no_id"
+        user_name = users_list[user_id] if user_id in users_list else "no_name"
 
         formatted_messages.append(
             {
                 "user_id": user_id,
-                "user_name": users_info[user_id],
+                "user_name": user_name,
                 "ts": i["ts"],
                 "text": i["text"],
                 "files": files,
@@ -180,8 +196,8 @@ def data_name() -> str:
 
 
 # firestoreに送信
-def send_to_database(id, oldest, latest, name):
-    messages = get_messages(id, oldest, latest)
+def send_to_database(id, oldest, latest, name, users_list):
+    messages = get_messages(id, oldest, latest, users_list)
     doc_ref = db.collection("messages").document(id)
     # firestore.ArrayUnion　<=おまじない
     doc_ref.set({name: firestore.ArrayUnion(messages)})
@@ -189,7 +205,7 @@ def send_to_database(id, oldest, latest, name):
 
 # 色々な関数を呼び出す
 def loop():
-    if now.day == 29:
+    if now.day == 1:
         oldest, latest = time_range()
         name = data_name()
 
@@ -203,18 +219,21 @@ def loop():
         print("got all the IDs")
         print("")
 
+        users_list = get_user_list()
+        print("got user list")
+        print("")
+
         # id毎にfirestoreに送信
         for id in channel_id_list:
-            send_to_database(id, oldest, latest, name)
+            send_to_database(id, oldest, latest, name, users_list)
             print("")
-
     print("finish")
-loop()
+
 
 # 実行スケジュールを設定
 schedule.every().day.at("00:00").do(loop)
 
-# # 常に実行
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
+# 常に実行
+while True:
+    schedule.run_pending()
+    time.sleep(1)
