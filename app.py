@@ -1,3 +1,4 @@
+import json
 import os
 from dotenv import load_dotenv
 import schedule
@@ -52,8 +53,39 @@ def get_users(channel_id):
     return members  # チャンネル内の全メンバーの配列を返す
 
 
+def get_user_name(id):
+    url = "https://slack.com/api/users.info"
+    data = {"user": id}
+    r = requests.get(url, headers=headers, params=data)
+    user_data = r.json()
+    user_name = (
+        user_data["user"]["profile"]["display_name"] if "user" in user_data else ""
+    )
+    return user_name
+
+
+# ワークスペース内の全てユーザーの名前とidを取得
+def get_user_list():
+    url = "https://slack.com/api/users.list"
+    r = requests.get(url, headers=headers)
+    user_data = r.json()
+    members_name_and_id = {}
+    if "members" in user_data:
+        members = user_data["members"]
+        for i in members:
+            if not i["deleted"] and not i["is_bot"] and i["id"] != "USLACKBOT":
+                user_name = get_user_name(user_id)
+                user_id = i["id"]
+                user_name = user_name if user_name != "" else i["real_name"]
+            else:
+                user_id = "no_id"
+                user_name = "no_name"
+            members_name_and_id.update({f"{user_id}": user_name})
+    return members_name_and_id
+
+
 # メッセージのリプライを取得
-def get_replies(id, ts) -> list:
+def get_replies(id, ts, users_info) -> list:
     print(ts)
     url = "https://slack.com/api/conversations.replies"
     data = {
@@ -63,7 +95,8 @@ def get_replies(id, ts) -> list:
     r = requests.get(url, headers=headers, params=data)
 
     formatted_replies = []
-    if "messages" in r.json():
+    if r.json()["has_more"] == True:
+        # if "messages" in r.json():
         replies = r.json()["messages"]
         for i in replies:
             # リプライに添付されたファイル
@@ -72,20 +105,26 @@ def get_replies(id, ts) -> list:
                 for j in i["files"]:
                     files.append({"name": j["name"], "file_url": j["url_private"]})
 
+            # user_id, user_nameを定義
+            user_id = i["user"] if "user" in i else "no_id"
+            user_name = users_info[user_id] if user_id in users_info else "no_name"
+
             formatted_replies.append(
                 {
-                    "user": i["user"] if "user" in i else "",
+                    "user_id": user_id,
+                    "user_name": user_name,
                     "ts": i["ts"],
                     "text": i["text"],
                     "files": files,
                 }
             )
         formatted_replies.pop(0)
+    print("ok")
     return formatted_replies
 
 
 # チャンネルからメッセージを取得
-def get_messages(id, oldest, latest) -> list:
+def get_messages(id, oldest, latest, users_list) -> list:
     print(id)
     url = "https://slack.com/api/conversations.history"
     data = {
@@ -103,16 +142,22 @@ def get_messages(id, oldest, latest) -> list:
 
     for i in messages:
         # メッセージに付いた返信を取得
-        replies = get_replies(id, i["ts"])
+        replies = get_replies(id, i["ts"], users_list)
 
         # メッセージに添付されたファイルを取得
         files = []
         if "files" in i:
             for j in i["files"]:
                 files.append({"name": j["name"], "file_url": j["url_private"]})
+
+        # user_id, user_nameを定義
+        user_id = i["user"] if "user" in i else "no_id"
+        user_name = users_list[user_id] if user_id in users_list else "no_name"
+
         formatted_messages.append(
             {
-                "user": i["user"] if "user" in i else "",
+                "user_id": user_id,
+                "user_name": user_name,
                 "ts": i["ts"],
                 "text": i["text"],
                 "files": files,
@@ -151,8 +196,8 @@ def data_name() -> str:
 
 
 # firestoreに送信
-def send_to_database(id, oldest, latest, name):
-    messages = get_messages(id, oldest, latest)
+def send_to_database(id, oldest, latest, name, users_list):
+    messages = get_messages(id, oldest, latest, users_list)
     doc_ref = db.collection("messages").document(id)
     # firestore.ArrayUnion　<=おまじない
     doc_ref.set({name: firestore.ArrayUnion(messages)})
@@ -174,11 +219,14 @@ def loop():
         print("got all the IDs")
         print("")
 
+        users_list = get_user_list()
+        print("got user list")
+        print("")
+
         # id毎にfirestoreに送信
         for id in channel_id_list:
-            send_to_database(id, oldest, latest, name)
+            send_to_database(id, oldest, latest, name, users_list)
             print("")
-
     print("finish")
 
 
