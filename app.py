@@ -74,8 +74,8 @@ def get_user_list():
         members = user_data["members"]
         for i in members:
             if not i["deleted"] and not i["is_bot"] and i["id"] != "USLACKBOT":
-                user_name = get_user_name(user_id)
                 user_id = i["id"]
+                user_name = get_user_name(user_id)
                 user_name = user_name if user_name != "" else i["real_name"]
             else:
                 user_id = "no_id"
@@ -95,8 +95,8 @@ def get_replies(id, ts, users_info) -> list:
     r = requests.get(url, headers=headers, params=data)
 
     formatted_replies = []
-    if r.json()["has_more"] == True:
-        # if "messages" in r.json():
+    # if r.json()["has_more"] == True:
+    if "messages" in r.json():
         replies = r.json()["messages"]
         for i in replies:
             # リプライに添付されたファイル
@@ -205,7 +205,7 @@ def send_to_database(id, oldest, latest, name, users_list):
 
 # 色々な関数を呼び出す
 def loop():
-    if now.day == 1:
+    if now.day == 30:
         oldest, latest = time_range()
         name = data_name()
 
@@ -228,7 +228,7 @@ def loop():
             send_to_database(id, oldest, latest, name, users_list)
             print("")
     print("finish")
-
+loop()
 
 # 実行スケジュールを設定
 schedule.every().day.at("00:00").do(loop)
