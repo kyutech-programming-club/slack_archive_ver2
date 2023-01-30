@@ -205,7 +205,7 @@ def send_to_database(id, oldest, latest, name, users_list):
 
 # 色々な関数を呼び出す
 def loop():
-    if now.day == 30:
+    if now.day == 1:
         oldest, latest = time_range()
         name = data_name()
 
@@ -228,7 +228,7 @@ def loop():
             send_to_database(id, oldest, latest, name, users_list)
             print("")
     print("finish")
-loop()
+
 
 # 実行スケジュールを設定
 schedule.every().day.at("00:00").do(loop)
